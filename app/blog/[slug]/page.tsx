@@ -100,9 +100,26 @@ const mdxComponents = {
       {...props}
     />
   ),
-  img: (props: any) => (
-    <img className="rounded-lg my-6 max-w-full" {...props} />
-  ),
+  img: (props: any) => {
+    const { src, alt = '', width, height, ...rest } = props
+    
+    // Use Next.js Image for all images (both local and external)
+    // External images are now allowed via next.config.js remotePatterns
+    return (
+      <div className="my-6 rounded-lg overflow-hidden">
+        <Image
+          src={src || ''}
+          alt={alt}
+          width={width || 800}
+          height={height || 600}
+          className="rounded-lg max-w-full h-auto"
+          // For external images without known dimensions, use unoptimized
+          unoptimized={!width && !height && (src?.startsWith('http://') || src?.startsWith('https://'))}
+          {...rest}
+        />
+      </div>
+    )
+  },
   ConceptCard,
   Diagram,
   PaymentComparison,

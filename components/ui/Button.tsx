@@ -4,7 +4,10 @@ import Link from 'next/link'
 import { ButtonHTMLAttributes, ReactNode } from 'react'
 import { motion } from 'framer-motion'
 
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+interface ButtonProps extends Omit<
+  ButtonHTMLAttributes<HTMLButtonElement>,
+  'onDrag' | 'onDragEnd' | 'onDragStart' | 'onAnimationStart' | 'onAnimationEnd' | 'onAnimationIteration'
+> {
   variant?: 'primary' | 'secondary' | 'ghost'
   size?: 'sm' | 'md' | 'lg'
   href?: string
@@ -17,7 +20,20 @@ export default function Button({
   href,
   children,
   className = '',
-  ...props
+  onClick,
+  disabled,
+  type,
+  form,
+  formAction,
+  formEncType,
+  formMethod,
+  formNoValidate,
+  formTarget,
+  name,
+  value,
+  autoFocus,
+  tabIndex,
+  ...restProps
 }: ButtonProps) {
   const baseStyles =
     'inline-flex items-center justify-center font-medium rounded-lg transition-all focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed'
@@ -47,12 +63,26 @@ export default function Button({
     )
   }
 
+  // Only pass safe props to motion.button
   return (
     <motion.button
       whileHover={{ scale: 1.02 }}
       whileTap={{ scale: 0.98 }}
       className={classes}
-      {...props}
+      onClick={onClick}
+      disabled={disabled}
+      type={type}
+      form={form}
+      formAction={formAction}
+      formEncType={formEncType}
+      formMethod={formMethod}
+      formNoValidate={formNoValidate}
+      formTarget={formTarget}
+      name={name}
+      value={value}
+      autoFocus={autoFocus}
+      tabIndex={tabIndex}
+      {...restProps}
     >
       {children}
     </motion.button>

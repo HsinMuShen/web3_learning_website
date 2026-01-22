@@ -19,6 +19,7 @@ export async function serializeMDX(content: string) {
             },
           },
         ],
+        // @ts-expect-error - rehype-highlight has nested dependency conflicts
         rehypeHighlight,
       ],
     },

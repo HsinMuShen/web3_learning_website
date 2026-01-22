@@ -193,6 +193,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                         },
                       },
                     ],
+                    // @ts-expect-error - rehype-highlight has nested dependency conflicts
                     rehypeHighlight,
                   ],
                 },

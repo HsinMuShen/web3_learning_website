@@ -69,3 +69,34 @@ pre code {
 .anchor {
   @apply text-primary-600 no-underline hover:text-primary-700;
 }
+
+/* Prevent image and content overflow on mobile */
+.prose img,
+.prose svg,
+.prose video {
+  @apply max-w-full h-auto;
+}
+
+/* Ensure SVGs maintain their aspect ratio and don't expand */
+svg {
+  max-width: 100%;
+  height: auto;
+  flex-shrink: 0;
+}
+
+/* Ensure diagrams and educational components don't overflow */
+.prose > * {
+  @apply max-w-full;
+}
+
+/* Mobile-specific fixes */
+@media (max-width: 640px) {
+  .prose {
+    @apply px-4;
+  }
+  
+  .prose img,
+  .prose svg {
+    @apply w-full;
+  }
+}

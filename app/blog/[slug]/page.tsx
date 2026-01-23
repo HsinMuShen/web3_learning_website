@@ -17,6 +17,8 @@ import NetworkDiagram from '@/components/educational/NetworkDiagram'
 import ProofOfWork from '@/components/educational/ProofOfWork'
 import DigitalSignature from '@/components/educational/DigitalSignature'
 import { getServerTranslations } from '@/lib/i18n/server'
+import { getQuizBySlug } from '@/lib/quiz'
+import QuizTrigger from '@/components/quiz/QuizTrigger'
 
 interface BlogPostPageProps {
   params: Promise<{
@@ -108,17 +110,20 @@ const mdxComponents = {
     // Use Next.js Image for all images (both local and external)
     // External images are now allowed via next.config.js remotePatterns
     return (
-      <div className="my-6 rounded-lg overflow-hidden">
-        <Image
-          src={src || ''}
-          alt={alt}
-          width={width || 800}
-          height={height || 600}
-          className="rounded-lg max-w-full h-auto"
-          // For external images without known dimensions, use unoptimized
-          unoptimized={!width && !height && (src?.startsWith('http://') || src?.startsWith('https://'))}
-          {...rest}
-        />
+      <div className="my-6 rounded-lg overflow-hidden w-full">
+        <div className="relative w-full" style={{ maxWidth: '100%' }}>
+          <Image
+            src={src || ''}
+            alt={alt}
+            width={width || 800}
+            height={height || 600}
+            className="rounded-lg w-full h-auto object-contain"
+            style={{ maxWidth: '100%', height: 'auto' }}
+            // For external images without known dimensions, use unoptimized
+            unoptimized={!width && !height && (src?.startsWith('http://') || src?.startsWith('https://'))}
+            {...rest}
+          />
+        </div>
       </div>
     )
   },
@@ -136,6 +141,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
   const { slug } = await params
   const { locale, translations } = await getServerTranslations()
   const post = getPostBySlug(slug, locale)
+  const quizQuestions = getQuizBySlug(slug, locale)
 
   if (!post) {
     notFound()
@@ -179,7 +185,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
         {/* Content */}
         <Section>
-          <div className="max-w-4xl mx-auto prose prose-lg max-w-none">
+          <div className="max-w-4xl mx-auto prose prose-lg max-w-none overflow-x-hidden">
             <MDXRemote
               source={post.content}
               components={mdxComponents}
@@ -203,6 +209,18 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                 },
               }}
             />
+            
+            {/* Quiz Section */}
+            {quizQuestions && quizQuestions.length > 0 && (
+              <div className="mt-12">
+                <QuizTrigger
+                  questions={quizQuestions}
+                  title={translations.quiz.title}
+                  buttonText={translations.quiz.buttonText}
+                  translations={translations}
+                />
+              </div>
+            )}
           </div>
         </Section>
       </article>

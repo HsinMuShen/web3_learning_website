@@ -1,0 +1,63 @@
+[
+  {
+    "id": "1",
+    "question": "¿Cuál es el problema principal que Bitcoin fue diseñado para resolver?",
+    "options": [
+      "Hacer que las transferencias de dinero sean más rápidas",
+      "Eliminar la necesidad de bancos en las transacciones financieras",
+      "Crear un nuevo tipo de inversión",
+      "Reemplazar todas las monedas tradicionales"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Bitcoin fue diseñado para crear un sistema de efectivo electrónico peer-to-peer que elimina la necesidad de bancos u otros intermediarios en las transacciones financieras. Si bien hace que las transferencias sean más rápidas y baratas, la innovación central es eliminar la necesidad de terceros confiables."
+  },
+  {
+    "id": "2",
+    "question": "¿Qué es una blockchain?",
+    "options": [
+      "Un tipo de criptomoneda",
+      "Una cadena de bloques que contienen transacciones, donde cada bloque hace referencia al anterior",
+      "Una base de datos propiedad de una sola empresa",
+      "Una forma de minar Bitcoin"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Una blockchain es una cadena de bloques, donde cada bloque contiene una lista de transacciones y un enlace (referencia) al bloque anterior. Esto crea una cadena irrompible donde cambiar cualquier bloque antiguo rompería las conexiones, haciendo casi imposible alterar transacciones pasadas."
+  },
+  {
+    "id": "3",
+    "question": "¿Qué es Proof of Work (Prueba de Trabajo) en Bitcoin?",
+    "options": [
+      "Una forma de probar que posees Bitcoin",
+      "Un sistema que requiere que las computadoras resuelvan problemas matemáticos difíciles para agregar nuevos bloques",
+      "Un método para verificar tu identidad",
+      "Una forma de encriptar transacciones"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Proof of Work es un sistema que requiere que las computadoras (mineros) resuelvan problemas matemáticos complejos para agregar nuevos bloques a la blockchain. El primer minero en resolver el problema puede agregar el bloque y recibe una recompensa. Este sistema mantiene la red segura porque es extremadamente costoso atacarla."
+  },
+  {
+    "id": "4",
+    "question": "¿Qué significa 'descentralizado' en el contexto de Bitcoin?",
+    "options": [
+      "Bitcoin está controlado por una autoridad central",
+      "Ninguna persona, empresa u organización única controla Bitcoin",
+      "Las transacciones de Bitcoin son procesadas por bancos",
+      "Bitcoin es administrado por el gobierno"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Descentralizado significa que ninguna persona, empresa u organización única controla Bitcoin. En cambio, es ejecutado por miles de computadoras en todo el mundo, y cualquiera puede participar. Esto es diferente de los sistemas tradicionales donde una entidad (como un banco o gobierno) controla todo."
+  },
+  {
+    "id": "5",
+    "question": "¿Cómo funcionan las firmas digitales en Bitcoin?",
+    "options": [
+      "Son firmas manuscritas escaneadas en el sistema",
+      "Usan criptografía para probar que una transacción provino del propietario de Bitcoin y no ha sido alterada",
+      "Requieren que un banco verifique tu identidad",
+      "Son opcionales y no son realmente necesarias"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Las firmas digitales en Bitcoin usan criptografía (técnicas matemáticas) para probar que una transacción realmente provino del propietario del Bitcoin y no ha sido alterada. Es matemáticamente imposible falsificarlas, lo que hace que las transacciones de Bitcoin sean seguras sin necesidad de que un banco verifique tu identidad."
+  }
+]
+

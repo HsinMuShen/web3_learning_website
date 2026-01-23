@@ -79,6 +79,28 @@
     "postNotFoundDesc": "您要尋找的部落格文章不存在或已被移動。",
     "backToBlog": "返回部落格"
   },
+  "quiz": {
+    "title": "測試您的知識",
+    "buttonText": "開始測驗",
+    "testYourKnowledge": "測試您的知識",
+    "testDescription": "參加這個測驗，看看您對這篇文章中的概念理解得如何。",
+    "question": "問題",
+    "of": "共",
+    "correct": "正確",
+    "incorrect": "錯誤",
+    "greatJob": "做得好！",
+    "letsReview": "讓我們複習一下：",
+    "previous": "上一題",
+    "next": "下一題",
+    "finish": "完成",
+    "tryAgain": "再試一次",
+    "excellent": "優秀！🎉",
+    "goodJob": "做得好！👍",
+    "keepLearning": "繼續學習！📚",
+    "youGot": "您答對了",
+    "outOf": "共",
+    "questionsCorrect": "題。"
+  },
   "terms": {
     "title": "條款與隱私政策",
     "lastUpdated": "最後更新",

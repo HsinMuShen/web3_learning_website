@@ -5,7 +5,7 @@ import Diagram from './Diagram'
 export default function NetworkDiagram() {
   return (
     <Diagram title="Bitcoin Network: Peer-to-Peer">
-      <div className="w-full max-w-2xl">
+      <div className="w-full max-w-2xl mx-auto">
         <div className="relative h-64 flex items-center justify-center">
           {/* Central node */}
           <div className="absolute z-10">

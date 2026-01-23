@@ -5,13 +5,15 @@ import Button from '@/components/ui/Button'
 import AnimatedDiv from '@/components/ui/AnimatedDiv'
 import AnimatedHeading from '@/components/ui/AnimatedHeading'
 import AnimatedSection from '@/components/ui/AnimatedSection'
+import { getServerTranslations } from '@/lib/i18n/server'
 
 export const metadata: Metadata = {
   title: 'Home',
   description: 'Learn Bitcoin and Web3 fundamentals in simple, beginner-friendly language.',
 }
 
-export default function Home() {
+export default async function Home() {
+  const { translations } = await getServerTranslations()
   return (
     <>
       {/* Hero Section */}
@@ -21,8 +23,7 @@ export default function Home() {
             as="h1"
             className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 text-balance"
           >
-            Learn Bitcoin & Web3,{' '}
-            <span className="text-primary-600">Made Simple</span>
+            {translations.home.title}
           </AnimatedHeading>
           <AnimatedDiv
             initial={{ opacity: 0, y: 20 }}
@@ -30,11 +31,7 @@ export default function Home() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-xl text-gray-600 mb-8 text-balance"
           >
-            <p>
-              Understanding Bitcoin and Web3 doesn&apos;t have to be complicated. We
-              break down complex concepts into simple, easy-to-understand lessons
-              perfect for absolute beginners.
-            </p>
+            <p>{translations.home.subtitle}</p>
           </AnimatedDiv>
           <AnimatedDiv
             initial={{ opacity: 0, y: 20 }}
@@ -43,10 +40,10 @@ export default function Home() {
             className="flex flex-col sm:flex-row gap-4 justify-center"
           >
             <Button href="/blog" size="lg">
-              Start Learning
+              {translations.home.startLearning}
             </Button>
             <Button href="/about" variant="secondary" size="lg">
-              Learn More
+              {translations.home.learnMore}
             </Button>
           </AnimatedDiv>
         </div>
@@ -56,49 +53,42 @@ export default function Home() {
       <Section>
         <AnimatedSection>
           <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-4">
-            What You&apos;ll Learn
+            {translations.home.whatYoullLearn}
           </h2>
           <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
-            Our lessons cover everything from the basics of Bitcoin to
-            understanding the broader Web3 ecosystem.
+            {translations.home.whatYoullLearnDesc}
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               {
-                title: 'Bitcoin Basics',
-                description:
-                  'Learn what Bitcoin is, how it works, and why it matters in simple terms.',
+                title: translations.home.bitcoinBasics,
+                description: translations.home.bitcoinBasicsDesc,
                 icon: '₿',
               },
               {
-                title: 'Blockchain Explained',
-                description:
-                  'Understand the technology behind Bitcoin and how blockchains work.',
+                title: translations.home.blockchainExplained,
+                description: translations.home.blockchainExplainedDesc,
                 icon: '⛓️',
               },
               {
-                title: 'Web3 Fundamentals',
-                description:
-                  'Explore the decentralized web and how it differs from the internet you know.',
+                title: translations.home.web3Fundamentals,
+                description: translations.home.web3FundamentalsDesc,
                 icon: '🌐',
               },
               {
-                title: 'Digital Wallets',
-                description:
-                  'Learn about digital wallets and how to safely store cryptocurrency.',
+                title: translations.home.digitalWallets,
+                description: translations.home.digitalWalletsDesc,
                 icon: '👛',
               },
               {
-                title: 'Smart Contracts',
-                description:
-                  'Discover how smart contracts work and their real-world applications.',
+                title: translations.home.smartContracts,
+                description: translations.home.smartContractsDesc,
                 icon: '📜',
               },
               {
-                title: 'Decentralization',
-                description:
-                  'Understand what decentralization means and why it matters.',
+                title: translations.home.decentralization,
+                description: translations.home.decentralizationDesc,
                 icon: '🔗',
               },
             ].map((item, index) => (
@@ -119,37 +109,33 @@ export default function Home() {
         <div className="max-w-4xl mx-auto">
           <AnimatedSection>
             <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-4">
-              How It Works
+              {translations.home.howItWorks}
             </h2>
             <p className="text-center text-gray-600 mb-12">
-              Our learning journey is designed to be simple and accessible.
+              {translations.home.howItWorksDesc}
             </p>
 
             <div className="space-y-8">
               {[
                 {
                   step: '1',
-                  title: 'Start with the Basics',
-                  description:
-                    'We begin with fundamental concepts, assuming you have zero prior knowledge of Bitcoin or Web3.',
+                  title: translations.home.step1,
+                  description: translations.home.step1Desc,
                 },
                 {
                   step: '2',
-                  title: 'Learn Through Stories',
-                  description:
-                    'Complex ideas are explained using simple analogies, visual diagrams, and real-world examples.',
+                  title: translations.home.step2,
+                  description: translations.home.step2Desc,
                 },
                 {
                   step: '3',
-                  title: 'Build Your Understanding',
-                  description:
-                    'Each lesson builds on the previous one, gradually expanding your knowledge of the Web3 world.',
+                  title: translations.home.step3,
+                  description: translations.home.step3Desc,
                 },
                 {
                   step: '4',
-                  title: 'Practice & Explore',
-                  description:
-                    'Apply what you learn and explore further resources to deepen your understanding.',
+                  title: translations.home.step4,
+                  description: translations.home.step4Desc,
                 },
               ].map((item, index) => (
                 <AnimatedDiv
@@ -180,14 +166,13 @@ export default function Home() {
       <Section>
         <AnimatedSection className="text-center max-w-2xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            Ready to Start Learning?
+            {translations.home.readyToStart}
           </h2>
           <p className="text-gray-600 mb-8">
-            Begin your journey into Bitcoin and Web3 with our first lesson,
-            designed specifically for beginners.
+            {translations.home.readyToStartDesc}
           </p>
           <Button href="/blog" size="lg">
-            Explore Our Blog
+            {translations.home.exploreBlog}
           </Button>
         </AnimatedSection>
       </Section>

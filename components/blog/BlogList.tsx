@@ -1,16 +1,20 @@
 import { BlogPost } from '@/lib/blog'
 import BlogCard from './BlogCard'
+import { Translations } from '@/lib/i18n/translations'
+import { Locale } from '@/lib/i18n/config'
 
 interface BlogListProps {
   posts: BlogPost[]
+  translations: Translations
+  locale: Locale
 }
 
-export default function BlogList({ posts }: BlogListProps) {
+export default function BlogList({ posts, translations, locale }: BlogListProps) {
   if (posts.length === 0) {
     return (
       <div className="text-center py-12">
         <p className="text-gray-600 text-lg">
-          No blog posts yet. Check back soon!
+          {translations.blog.noPosts}
         </p>
       </div>
     )
@@ -27,6 +31,8 @@ export default function BlogList({ posts }: BlogListProps) {
           date={post.date}
           readingTime={post.readingTime}
           featuredImage={post.featuredImage}
+          locale={locale}
+          minReadText={translations.common.minRead}
         />
       ))}
     </div>

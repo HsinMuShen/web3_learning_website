@@ -16,6 +16,7 @@ import TransactionFlow from '@/components/educational/TransactionFlow'
 import NetworkDiagram from '@/components/educational/NetworkDiagram'
 import ProofOfWork from '@/components/educational/ProofOfWork'
 import DigitalSignature from '@/components/educational/DigitalSignature'
+import { getServerTranslations } from '@/lib/i18n/server'
 
 interface BlogPostPageProps {
   params: Promise<{
@@ -34,7 +35,8 @@ export async function generateMetadata({
   params,
 }: BlogPostPageProps): Promise<Metadata> {
   const { slug } = await params
-  const post = getPostBySlug(slug)
+  const { locale } = await getServerTranslations()
+  const post = getPostBySlug(slug, locale)
 
   if (!post) {
     return {
@@ -132,13 +134,15 @@ const mdxComponents = {
 
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
   const { slug } = await params
-  const post = getPostBySlug(slug)
+  const { locale, translations } = await getServerTranslations()
+  const post = getPostBySlug(slug, locale)
 
   if (!post) {
     notFound()
   }
 
-  const formattedDate = new Date(post.date).toLocaleDateString('en-US', {
+  const dateLocale = locale === 'zh-TW' ? 'zh-TW' : locale === 'es' ? 'es-ES' : 'en-US'
+  const formattedDate = new Date(post.date).toLocaleDateString(dateLocale, {
     year: 'numeric',
     month: 'long',
     day: 'numeric',
@@ -157,7 +161,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             <div className="flex items-center gap-4 text-gray-500">
               <time dateTime={post.date}>{formattedDate}</time>
               <span>•</span>
-              <span>{post.readingTime} min read</span>
+              <span>{post.readingTime} {translations.common.minRead}</span>
             </div>
             {post.featuredImage && (
               <div className="relative w-full h-64 md:h-96 mt-8 rounded-lg overflow-hidden">

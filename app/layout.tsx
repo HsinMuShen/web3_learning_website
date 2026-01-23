@@ -3,6 +3,8 @@ import { Inter, Merriweather } from 'next/font/google'
 import './globals.css'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
+import { getLocale } from '@/lib/i18n/cookies'
+import { getTranslations } from '@/lib/i18n/translations'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -44,25 +46,29 @@ export const metadata: Metadata = {
   },
 }
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
+  const locale = await getLocale()
+  const { getTranslations } = await import('@/lib/i18n/translations')
+  const translations = getTranslations(locale)
+  
   return (
-    <html lang="en" className={`${inter.variable} ${merriweather.variable}`}>
+    <html lang={locale} className={`${inter.variable} ${merriweather.variable}`}>
       <body className="min-h-screen flex flex-col">
         <a
           href="#main-content"
           className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-primary-600 focus:text-white focus:rounded-md"
         >
-          Skip to main content
+          {translations.common.skipToContent}
         </a>
-        <Header />
+        <Header locale={locale} translations={translations} />
         <main id="main-content" className="flex-1">
           {children}
         </main>
-        <Footer />
+        <Footer translations={translations} />
       </body>
     </html>
   )

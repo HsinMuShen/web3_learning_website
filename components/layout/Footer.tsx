@@ -1,6 +1,11 @@
 import Link from 'next/link'
+import { Translations } from '@/lib/i18n/translations'
 
-export default function Footer() {
+interface FooterProps {
+  translations: Translations
+}
+
+export default function Footer({ translations }: FooterProps) {
   return (
     <footer className="bg-gray-50 border-t border-gray-200">
       <div className="container-custom section-padding">
@@ -8,23 +13,25 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <h3 className="text-lg font-bold text-primary-600 mb-4">
-              Web3 Learn
+              {translations.footer.brand}
             </h3>
             <p className="text-gray-600 text-sm">
-              Making Bitcoin and Web3 education accessible to everyone.
+              {translations.footer.tagline}
             </p>
           </div>
 
           {/* Links */}
           <div>
-            <h4 className="font-semibold text-gray-900 mb-4">Quick Links</h4>
+            <h4 className="font-semibold text-gray-900 mb-4">
+              {translations.footer.quickLinks}
+            </h4>
             <ul className="space-y-2">
               <li>
                 <Link
                   href="/"
                   className="text-gray-600 hover:text-primary-600 transition-colors text-sm"
                 >
-                  Home
+                  {translations.common.home}
                 </Link>
               </li>
               <li>
@@ -32,7 +39,7 @@ export default function Footer() {
                   href="/about"
                   className="text-gray-600 hover:text-primary-600 transition-colors text-sm"
                 >
-                  About
+                  {translations.common.about}
                 </Link>
               </li>
               <li>
@@ -40,7 +47,7 @@ export default function Footer() {
                   href="/blog"
                   className="text-gray-600 hover:text-primary-600 transition-colors text-sm"
                 >
-                  Blog
+                  {translations.common.blog}
                 </Link>
               </li>
               <li>
@@ -48,7 +55,7 @@ export default function Footer() {
                   href="/terms"
                   className="text-gray-600 hover:text-primary-600 transition-colors text-sm"
                 >
-                  Terms & Privacy
+                  {translations.common.terms}
                 </Link>
               </li>
             </ul>
@@ -56,14 +63,16 @@ export default function Footer() {
 
           {/* Legal */}
           <div>
-            <h4 className="font-semibold text-gray-900 mb-4">Legal</h4>
+            <h4 className="font-semibold text-gray-900 mb-4">
+              {translations.footer.legal}
+            </h4>
             <ul className="space-y-2">
               <li>
                 <Link
                   href="/terms"
                   className="text-gray-600 hover:text-primary-600 transition-colors text-sm"
                 >
-                  Privacy Policy
+                  {translations.terms.privacyPolicy}
                 </Link>
               </li>
               <li>
@@ -71,7 +80,7 @@ export default function Footer() {
                   href="/terms"
                   className="text-gray-600 hover:text-primary-600 transition-colors text-sm"
                 >
-                  Terms of Use
+                  {translations.terms.termsOfUse}
                 </Link>
               </li>
             </ul>
@@ -80,7 +89,7 @@ export default function Footer() {
 
         <div className="mt-8 pt-8 border-t border-gray-200">
           <p className="text-center text-gray-600 text-sm">
-            © {new Date().getFullYear()} Web3 Learn. All rights reserved.
+            © {new Date().getFullYear()} {translations.footer.brand}. {translations.footer.copyright}
           </p>
         </div>
       </div>

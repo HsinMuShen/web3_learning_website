@@ -3,13 +3,15 @@ import Section from '@/components/ui/Section'
 import AnimatedHeading from '@/components/ui/AnimatedHeading'
 import AnimatedDiv from '@/components/ui/AnimatedDiv'
 import AnimatedSection from '@/components/ui/AnimatedSection'
+import { getServerTranslations } from '@/lib/i18n/server'
 
 export const metadata: Metadata = {
   title: 'Terms & Privacy Policy',
   description: 'Terms of use and privacy policy for Web3 Learn.',
 }
 
-export default function Terms() {
+export default async function Terms() {
+  const { translations, locale } = await getServerTranslations()
   return (
     <>
       <Section className="bg-gradient-to-b from-primary-50 to-white">
@@ -18,7 +20,7 @@ export default function Terms() {
             as="h1"
             className="text-4xl md:text-5xl font-bold text-gray-900 mb-6"
           >
-            Terms & Privacy Policy
+            {translations.terms.title}
           </AnimatedHeading>
           <AnimatedDiv
             initial={{ opacity: 0, y: 20 }}
@@ -27,7 +29,7 @@ export default function Terms() {
             className="text-gray-600"
           >
             <p>
-              Last updated: {new Date().toLocaleDateString('en-US', {
+              {translations.terms.lastUpdated}: {new Date().toLocaleDateString(locale === 'zh-TW' ? 'zh-TW' : locale === 'es' ? 'es-ES' : 'en-US', {
                 year: 'numeric',
                 month: 'long',
                 day: 'numeric',
@@ -42,51 +44,32 @@ export default function Terms() {
           {/* Terms of Use */}
           <AnimatedSection className="mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-6">
-              Terms of Use
+              {translations.terms.termsOfUse}
             </h2>
             <div className="space-y-4 text-gray-700">
               <div>
                 <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                  Acceptance of Terms
+                  {translations.terms.acceptanceOfTerms}
                 </h3>
-                <p>
-                  By accessing and using this website, you accept and agree to
-                  be bound by the terms and provision of this agreement.
-                </p>
+                <p>{translations.terms.acceptanceOfTermsText}</p>
               </div>
               <div>
                 <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                  Educational Content
+                  {translations.terms.educationalContent}
                 </h3>
-                <p>
-                  The content on this website is provided for educational
-                  purposes only. While we strive to provide accurate information,
-                  we make no representations or warranties of any kind,
-                  express or implied, about the completeness, accuracy,
-                  reliability, or suitability of the information.
-                </p>
+                <p>{translations.terms.educationalContentText}</p>
               </div>
               <div>
                 <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                  Not Financial Advice
+                  {translations.terms.notFinancialAdvice}
                 </h3>
-                <p>
-                  The information on this website does not constitute financial,
-                  investment, or trading advice. We are not financial advisors,
-                  and you should consult with a qualified financial professional
-                  before making any financial decisions.
-                </p>
+                <p>{translations.terms.notFinancialAdviceText}</p>
               </div>
               <div>
                 <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                  Intellectual Property
+                  {translations.terms.intellectualProperty}
                 </h3>
-                <p>
-                  All content on this website, including text, graphics, logos,
-                  and images, is the property of Web3 Learn or its content
-                  suppliers and is protected by copyright and other intellectual
-                  property laws.
-                </p>
+                <p>{translations.terms.intellectualPropertyText}</p>
               </div>
             </div>
           </AnimatedSection>
@@ -94,49 +77,32 @@ export default function Terms() {
           {/* Privacy Policy */}
           <AnimatedSection className="mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-6">
-              Privacy Policy
+              {translations.terms.privacyPolicy}
             </h2>
             <div className="space-y-4 text-gray-700">
               <div>
                 <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                  Information We Collect
+                  {translations.terms.informationWeCollect}
                 </h3>
-                <p>
-                  We are committed to protecting your privacy. Currently, we do
-                  not collect personal information unless you voluntarily provide
-                  it to us. If we add features that require data collection in
-                  the future, we will update this policy accordingly.
-                </p>
+                <p>{translations.terms.informationWeCollectText}</p>
               </div>
               <div>
                 <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                  Cookies and Tracking
+                  {translations.terms.cookiesAndTracking}
                 </h3>
-                <p>
-                  This website may use cookies to enhance your browsing
-                  experience. You can choose to disable cookies through your
-                  browser settings, though this may affect site functionality.
-                </p>
+                <p>{translations.terms.cookiesAndTrackingText}</p>
               </div>
               <div>
                 <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                  Third-Party Services
+                  {translations.terms.thirdPartyServices}
                 </h3>
-                <p>
-                  We may use third-party services for analytics or other
-                  purposes. These services have their own privacy policies
-                  governing the use of your information.
-                </p>
+                <p>{translations.terms.thirdPartyServicesText}</p>
               </div>
               <div>
                 <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                  Your Rights
+                  {translations.terms.yourRights}
                 </h3>
-                <p>
-                  You have the right to access, update, or delete any personal
-                  information we may hold about you. If you have questions about
-                  your privacy rights, please contact us.
-                </p>
+                <p>{translations.terms.yourRightsText}</p>
               </div>
             </div>
           </AnimatedSection>
@@ -144,11 +110,10 @@ export default function Terms() {
           {/* Contact */}
           <AnimatedSection>
             <h2 className="text-3xl font-bold text-gray-900 mb-6">
-              Contact Information
+              {translations.terms.contactInformation}
             </h2>
             <p className="text-gray-700">
-              If you have any questions about these Terms & Privacy Policy,
-              please contact us through our website.
+              {translations.terms.contactInformationText}
             </p>
           </AnimatedSection>
         </div>

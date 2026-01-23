@@ -3,27 +3,35 @@
 import Link from 'next/link'
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import LanguageSwitcher from '@/components/i18n/LanguageSwitcher'
+import { Translations } from '@/lib/i18n/translations'
+import { Locale } from '@/lib/i18n/config'
 
-export default function Header() {
+interface HeaderProps {
+  locale: Locale
+  translations: Translations
+}
+
+export default function Header({ locale, translations: t }: HeaderProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   const navLinks = [
-    { href: '/', label: 'Home' },
-    { href: '/about', label: 'About' },
-    { href: '/blog', label: 'Blog' },
+    { href: '/', label: t.common.home },
+    { href: '/about', label: t.common.about },
+    { href: '/blog', label: t.common.blog },
   ]
 
   return (
     <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-sm border-b border-gray-200">
-      <nav className="container-custom" aria-label="Main navigation">
+      <nav className="container-custom" aria-label={t.common.mainNavigation}>
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link
             href="/"
             className="text-2xl font-bold text-primary-600 hover:text-primary-700 transition-colors"
-            aria-label="Home"
+            aria-label={t.common.home}
           >
-            Web3 Learn
+            {t.common.siteName}
           </Link>
 
           {/* Desktop Navigation */}
@@ -37,6 +45,7 @@ export default function Header() {
                 {link.label}
               </Link>
             ))}
+            <LanguageSwitcher currentLocale={locale} />
           </div>
 
           {/* Mobile Menu Button */}

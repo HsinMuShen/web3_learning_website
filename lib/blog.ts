@@ -1,6 +1,7 @@
 import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
+import { Locale, defaultLocale } from './i18n/config'
 
 const postsDirectory = path.join(process.cwd(), 'content/blog')
 
@@ -15,6 +16,7 @@ export interface BlogPost {
   featuredImage?: string
   tags?: string[]
   content: string
+  locale?: Locale
 }
 
 export function getPostSlugs(): string[] {
@@ -28,10 +30,21 @@ export function getPostSlugs(): string[] {
     .map((entry) => entry.name)
 }
 
-export function getPostBySlug(slug: string): BlogPost | null {
+export function getPostBySlug(slug: string, locale?: Locale): BlogPost | null {
   try {
-    const fullPath = path.join(postsDirectory, slug, 'index.mdx')
-    if (!fs.existsSync(fullPath)) {
+    const targetLocale = locale || defaultLocale
+    const postDir = path.join(postsDirectory, slug)
+    
+    // Try locale-specific file first (e.g., index.zh-TW.mdx)
+    const localeSpecificPath = path.join(postDir, `index.${targetLocale}.mdx`)
+    const defaultPath = path.join(postDir, 'index.mdx')
+    
+    let fullPath: string
+    if (fs.existsSync(localeSpecificPath)) {
+      fullPath = localeSpecificPath
+    } else if (fs.existsSync(defaultPath)) {
+      fullPath = defaultPath
+    } else {
       return null
     }
 
@@ -49,6 +62,7 @@ export function getPostBySlug(slug: string): BlogPost | null {
       featuredImage: data.featuredImage,
       tags: data.tags || [],
       content,
+      locale: targetLocale,
     }
   } catch (error) {
     console.error(`Error reading post ${slug}:`, error)
@@ -56,10 +70,10 @@ export function getPostBySlug(slug: string): BlogPost | null {
   }
 }
 
-export function getAllPosts(): BlogPost[] {
+export function getAllPosts(locale?: Locale): BlogPost[] {
   const slugs = getPostSlugs()
   const posts = slugs
-    .map((slug) => getPostBySlug(slug))
+    .map((slug) => getPostBySlug(slug, locale))
     .filter((post): post is BlogPost => post !== null)
     .sort((a, b) => {
       if (a.date < b.date) {

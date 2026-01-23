@@ -5,7 +5,7 @@ import Diagram from './Diagram'
 export default function ProofOfWork() {
   return (
     <Diagram title="Proof of Work: Solving the Puzzle">
-      <div className="w-full max-w-2xl">
+      <div className="w-full max-w-2xl mx-auto">
         <div className="space-y-6">
           {/* Puzzle solving */}
           <div className="flex items-center justify-center gap-4">
@@ -16,12 +16,13 @@ export default function ProofOfWork() {
               <p className="text-xs text-gray-600">Hard Puzzle</p>
             </div>
 
-            <div className="flex-1 flex items-center justify-center">
+            <div className="flex-1 flex items-center justify-center min-w-0">
               <svg
-                className="w-12 h-12 text-primary-500"
+                className="w-6 h-6 sm:w-8 sm:h-8 text-primary-500 flex-shrink-0"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
+                preserveAspectRatio="xMidYMid meet"
               >
                 <path
                   strokeLinecap="round"
@@ -39,12 +40,13 @@ export default function ProofOfWork() {
               <p className="text-xs text-gray-600">Miners Work</p>
             </div>
 
-            <div className="flex-1 flex items-center justify-center">
+            <div className="flex-1 flex items-center justify-center min-w-0">
               <svg
-                className="w-12 h-12 text-green-500"
+                className="w-6 h-6 sm:w-8 sm:h-8 text-green-500 flex-shrink-0"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
+                preserveAspectRatio="xMidYMid meet"
               >
                 <path
                   strokeLinecap="round"

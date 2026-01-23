@@ -1,0 +1,63 @@
+[
+  {
+    "id": "1",
+    "question": "What is the main problem that Bitcoin was designed to solve?",
+    "options": [
+      "Making money transfers faster",
+      "Eliminating the need for banks in financial transactions",
+      "Creating a new type of investment",
+      "Replacing all traditional currencies"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Bitcoin was designed to create a peer-to-peer electronic cash system that eliminates the need for banks or other intermediaries in financial transactions. While it does make transfers faster and cheaper, the core innovation is removing the need for trusted third parties."
+  },
+  {
+    "id": "2",
+    "question": "What is a blockchain?",
+    "options": [
+      "A type of cryptocurrency",
+      "A chain of blocks containing transactions, where each block references the previous one",
+      "A database owned by a single company",
+      "A way to mine Bitcoin"
+    ],
+    "correctAnswer": 1,
+    "explanation": "A blockchain is a chain of blocks, where each block contains a list of transactions and a link (reference) to the previous block. This creates an unbreakable chain where changing any old block would break the connections, making it nearly impossible to alter past transactions."
+  },
+  {
+    "id": "3",
+    "question": "What is Proof of Work in Bitcoin?",
+    "options": [
+      "A way to prove you own Bitcoin",
+      "A system requiring computers to solve difficult math problems to add new blocks",
+      "A method to verify your identity",
+      "A way to encrypt transactions"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Proof of Work is a system that requires computers (miners) to solve complex mathematical problems to add new blocks to the blockchain. The first miner to solve the problem gets to add the block and receives a reward. This system keeps the network secure because it's extremely expensive to attack."
+  },
+  {
+    "id": "4",
+    "question": "What does 'decentralized' mean in the context of Bitcoin?",
+    "options": [
+      "Bitcoin is controlled by one central authority",
+      "No single person, company, or organization controls Bitcoin",
+      "Bitcoin transactions are processed by banks",
+      "Bitcoin is managed by the government"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Decentralized means that no single person, company, or organization controls Bitcoin. Instead, it's run by thousands of computers worldwide, and anyone can participate. This is different from traditional systems where one entity (like a bank or government) controls everything."
+  },
+  {
+    "id": "5",
+    "question": "How do digital signatures work in Bitcoin?",
+    "options": [
+      "They are handwritten signatures scanned into the system",
+      "They use cryptography to prove a transaction came from the Bitcoin owner and hasn't been tampered with",
+      "They require a bank to verify your identity",
+      "They are optional and not really needed"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Digital signatures in Bitcoin use cryptography (mathematical techniques) to prove that a transaction really came from the owner of the Bitcoin and hasn't been altered. It's mathematically impossible to fake, making Bitcoin transactions secure without needing a bank to verify your identity."
+  }
+]
+

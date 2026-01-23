@@ -5,7 +5,7 @@ import Diagram from './Diagram'
 export default function BlockchainDiagram() {
   return (
     <Diagram title="The Blockchain: A Chain of Blocks">
-      <div className="w-full max-w-3xl">
+      <div className="w-full max-w-3xl mx-auto">
         <div className="flex items-center justify-center gap-2 overflow-x-auto pb-4">
           {/* Block 1 */}
           <div className="flex-shrink-0 w-32 h-32 bg-primary-100 border-2 border-primary-300 rounded-lg p-3 flex flex-col items-center justify-center">
@@ -22,10 +22,11 @@ export default function BlockchainDiagram() {
           {/* Arrow */}
           <div className="flex-shrink-0">
             <svg
-              className="w-6 h-6 text-primary-500"
+              className="w-4 h-4 sm:w-6 sm:h-6 text-primary-500"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
+              preserveAspectRatio="xMidYMid meet"
             >
               <path
                 strokeLinecap="round"
@@ -52,10 +53,11 @@ export default function BlockchainDiagram() {
           {/* Arrow */}
           <div className="flex-shrink-0">
             <svg
-              className="w-6 h-6 text-primary-500"
+              className="w-4 h-4 sm:w-6 sm:h-6 text-primary-500"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
+              preserveAspectRatio="xMidYMid meet"
             >
               <path
                 strokeLinecap="round"

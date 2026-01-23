@@ -79,6 +79,28 @@
     "postNotFoundDesc": "La publicación de blog que buscas no existe o ha sido movida.",
     "backToBlog": "Volver al Blog"
   },
+  "quiz": {
+    "title": "Pon a Prueba Tu Conocimiento",
+    "buttonText": "Tomar Quiz",
+    "testYourKnowledge": "Pon a Prueba Tu Conocimiento",
+    "testDescription": "Toma este quiz para ver qué tan bien entiendes los conceptos de este artículo.",
+    "question": "Pregunta",
+    "of": "de",
+    "correct": "Correcto",
+    "incorrect": "Incorrecto",
+    "greatJob": "¡Bien hecho!",
+    "letsReview": "Revisemos:",
+    "previous": "Anterior",
+    "next": "Siguiente",
+    "finish": "Finalizar",
+    "tryAgain": "Intentar de Nuevo",
+    "excellent": "¡Excelente! 🎉",
+    "goodJob": "¡Bien Hecho! 👍",
+    "keepLearning": "¡Sigue Aprendiendo! 📚",
+    "youGot": "Obtuviste",
+    "outOf": "de",
+    "questionsCorrect": "preguntas correctas."
+  },
   "terms": {
     "title": "Términos y Política de Privacidad",
     "lastUpdated": "Última actualización",

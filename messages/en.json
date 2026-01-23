@@ -79,6 +79,28 @@
     "postNotFoundDesc": "The blog post you're looking for doesn't exist or has been moved.",
     "backToBlog": "Back to Blog"
   },
+  "quiz": {
+    "title": "Test Your Knowledge",
+    "buttonText": "Take Quiz",
+    "testYourKnowledge": "Test Your Knowledge",
+    "testDescription": "Take this quiz to see how well you understand the concepts from this article.",
+    "question": "Question",
+    "of": "of",
+    "correct": "Correct",
+    "incorrect": "Incorrect",
+    "greatJob": "Great job!",
+    "letsReview": "Let's review:",
+    "previous": "Previous",
+    "next": "Next",
+    "finish": "Finish",
+    "tryAgain": "Try Again",
+    "excellent": "Excellent! 🎉",
+    "goodJob": "Good Job! 👍",
+    "keepLearning": "Keep Learning! 📚",
+    "youGot": "You got",
+    "outOf": "out of",
+    "questionsCorrect": "questions correct."
+  },
   "terms": {
     "title": "Terms & Privacy Policy",
     "lastUpdated": "Last updated",

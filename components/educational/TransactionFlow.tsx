@@ -15,8 +15,8 @@ export default function TransactionFlow() {
 
   return (
     <Diagram title="Bitcoin Transaction Flow">
-      <div className="w-full max-w-4xl">
-        <div className="flex items-center justify-between gap-2 overflow-x-auto pb-4">
+      <div className="w-full max-w-4xl mx-auto">
+        <div className="flex items-center justify-between gap-2 overflow-x-auto pb-4 min-w-0">
           {steps.map((step, index) => (
             <div key={step.num} className="flex items-center">
               <div className="flex-shrink-0 text-center">
@@ -32,12 +32,13 @@ export default function TransactionFlow() {
                 <div className="text-xs text-gray-500">{step.desc}</div>
               </div>
               {index < steps.length - 1 && (
-                <div className="flex-shrink-0 mx-2">
+                <div className="flex-shrink-0 mx-1 sm:mx-2">
                   <svg
-                    className="w-6 h-6 text-primary-400"
+                    className="w-4 h-4 sm:w-6 sm:h-6 text-primary-400 flex-shrink-0"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
+                    preserveAspectRatio="xMidYMid meet"
                   >
                     <path
                       strokeLinecap="round"

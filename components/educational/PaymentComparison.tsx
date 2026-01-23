@@ -5,7 +5,7 @@ import Diagram from './Diagram'
 export default function PaymentComparison() {
   return (
     <Diagram title="Traditional Payment vs Bitcoin">
-      <div className="w-full max-w-2xl">
+      <div className="w-full max-w-2xl mx-auto">
         {/* Traditional Payment */}
         <div className="mb-8">
           <h5 className="text-sm font-semibold text-gray-700 mb-4 text-center">
@@ -18,12 +18,13 @@ export default function PaymentComparison() {
               </div>
               <p className="text-xs text-gray-600">You</p>
             </div>
-            <div className="flex-1 flex items-center justify-center">
+            <div className="flex-1 flex items-center justify-center min-w-0">
               <svg
-                className="w-8 h-8 text-gray-400"
+                className="w-6 h-6 sm:w-8 sm:h-8 text-gray-400 flex-shrink-0"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
+                preserveAspectRatio="xMidYMid meet"
               >
                 <path
                   strokeLinecap="round"
@@ -39,12 +40,13 @@ export default function PaymentComparison() {
               </div>
               <p className="text-xs text-gray-600">Bank</p>
             </div>
-            <div className="flex-1 flex items-center justify-center">
+            <div className="flex-1 flex items-center justify-center min-w-0">
               <svg
-                className="w-8 h-8 text-gray-400"
+                className="w-6 h-6 sm:w-8 sm:h-8 text-gray-400 flex-shrink-0"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
+                preserveAspectRatio="xMidYMid meet"
               >
                 <path
                   strokeLinecap="round"
@@ -60,12 +62,13 @@ export default function PaymentComparison() {
               </div>
               <p className="text-xs text-gray-600">Friend&apos;s Bank</p>
             </div>
-            <div className="flex-1 flex items-center justify-center">
+            <div className="flex-1 flex items-center justify-center min-w-0">
               <svg
-                className="w-8 h-8 text-gray-400"
+                className="w-6 h-6 sm:w-8 sm:h-8 text-gray-400 flex-shrink-0"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
+                preserveAspectRatio="xMidYMid meet"
               >
                 <path
                   strokeLinecap="round"
@@ -99,12 +102,13 @@ export default function PaymentComparison() {
               </div>
               <p className="text-xs text-gray-600">You</p>
             </div>
-            <div className="flex-1 flex items-center justify-center">
+            <div className="flex-1 flex items-center justify-center min-w-0">
               <svg
-                className="w-12 h-12 text-primary-500"
+                className="w-6 h-6 sm:w-8 sm:h-8 text-primary-500 flex-shrink-0"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
+                preserveAspectRatio="xMidYMid meet"
               >
                 <path
                   strokeLinecap="round"

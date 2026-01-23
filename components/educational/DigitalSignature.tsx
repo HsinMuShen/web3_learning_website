@@ -5,7 +5,7 @@ import Diagram from './Diagram'
 export default function DigitalSignature() {
   return (
     <Diagram title="Digital Signature: Your Unique Stamp">
-      <div className="w-full max-w-2xl">
+      <div className="w-full max-w-2xl mx-auto">
         <div className="space-y-6">
           {/* Process */}
           <div className="flex items-center justify-center gap-4">
@@ -16,12 +16,13 @@ export default function DigitalSignature() {
               <p className="text-xs text-gray-600">Transaction</p>
             </div>
 
-            <div className="flex-1 flex items-center justify-center">
+            <div className="flex-1 flex items-center justify-center min-w-0">
               <svg
-                className="w-8 h-8 text-gray-400"
+                className="w-6 h-6 sm:w-8 sm:h-8 text-gray-400 flex-shrink-0"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
+                preserveAspectRatio="xMidYMid meet"
               >
                 <path
                   strokeLinecap="round"

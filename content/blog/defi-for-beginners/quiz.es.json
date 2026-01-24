@@ -1,0 +1,58 @@
+[
+  {
+    "question": "¿Qué hace que DeFi sea diferente de las finanzas tradicionales?",
+    "options": [
+      "DeFi usa contratos inteligentes en lugar de intermediarios como bancos",
+      "DeFi siempre es más barato",
+      "DeFi es más simple de usar",
+      "DeFi está regulado por gobiernos"
+    ],
+    "correctAnswer": 0,
+    "explanation": "La diferencia clave es que DeFi usa contratos inteligentes que se ejecutan automáticamente en blockchains, eliminando la necesidad de bancos y otros intermediarios tradicionales."
+  },
+  {
+    "question": "¿Qué es un DEX (Intercambio Descentralizado)?",
+    "options": [
+      "Un exchange centralizado con mejores tarifas",
+      "Una plataforma que te permite intercambiar criptomonedas directamente sin un intermediario centralizado",
+      "Una billetera de criptomonedas",
+      "Un tipo de contrato inteligente"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Un DEX es una plataforma que permite el trading peer-to-peer de criptomonedas sin necesidad de un exchange centralizado, dándote control total sobre tus fondos."
+  },
+  {
+    "question": "¿Qué es la 'pérdida impermanente'?",
+    "options": [
+      "Perder tus claves privadas",
+      "La pérdida potencial al proveer liquidez comparado con solo mantener los tokens",
+      "Tarifas de transacción",
+      "Un error de contrato inteligente"
+    ],
+    "correctAnswer": 1,
+    "explanation": "La pérdida impermanente ocurre cuando el valor de los tokens en un pool de liquidez cambia comparado con simplemente mantener esos tokens, resultando en menos valor que si no hubieras proporcionado liquidez."
+  },
+  {
+    "question": "¿Qué es yield farming?",
+    "options": [
+      "Minar nuevas criptomonedas",
+      "La práctica de mover criptomonedas entre protocolos DeFi para maximizar rendimientos",
+      "Comprar y mantener Bitcoin",
+      "Hacer stake de tokens de gobernanza"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Yield farming es la estrategia de mover tus activos cripto entre diferentes protocolos DeFi (como pools de liquidez, plataformas de préstamos) para maximizar tus rendimientos a través de tarifas y recompensas de tokens."
+  },
+  {
+    "question": "¿Cuál NO es un riesgo común en DeFi?",
+    "options": [
+      "Riesgo de contratos inteligentes",
+      "Pérdida impermanente",
+      "Confiscación gubernamental de tu billetera auto-custodiada",
+      "Riesgo de rug pull"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Mientras que DeFi tiene varios riesgos como bugs de contratos inteligentes, pérdida impermanente y rug pulls, los gobiernos no pueden confiscar fondos de billeteras auto-custodiadas porque solo tú controlas las claves privadas."
+  }
+]
+

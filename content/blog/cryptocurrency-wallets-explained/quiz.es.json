@@ -1,0 +1,58 @@
+[
+  {
+    "question": "¿Qué almacena realmente una billetera de criptomonedas?",
+    "options": [
+      "Tus criptomonedas",
+      "Tus claves privadas y direcciones",
+      "Tu información bancaria",
+      "Tu historial de transacciones"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Las billeteras de criptomonedas no almacenan tus criptomonedas (que viven en la blockchain). En cambio, almacenan tus claves privadas y direcciones que te permiten acceder y gestionar tus criptomonedas."
+  },
+  {
+    "question": "¿Qué es una frase semilla?",
+    "options": [
+      "Una contraseña para iniciar sesión",
+      "Una serie de 12-24 palabras que pueden recuperar todas tus claves",
+      "Tu dirección de billetera",
+      "Un código de verificación de dos factores"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Una frase semilla (también llamada frase de recuperación) es una serie de 12-24 palabras aleatorias que pueden regenerar todas tus claves privadas y direcciones. Es la copia de seguridad más importante de tu billetera."
+  },
+  {
+    "question": "¿Cuál es la característica de seguridad PRINCIPAL de las billeteras de hardware?",
+    "options": [
+      "Son gratis",
+      "Almacenan claves privadas completamente fuera de línea",
+      "Son más fáciles de usar",
+      "Funcionan más rápido"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Las billeteras de hardware proporcionan seguridad máxima porque almacenan tus claves privadas completamente fuera de línea, protegiéndolas de hackers en línea y malware."
+  },
+  {
+    "question": "¿Qué significa 'No tus claves, no tus criptomonedas'?",
+    "options": [
+      "Las billeteras son inútiles",
+      "Si no controlas las claves privadas, no controlas realmente las criptomonedas",
+      "Necesitas comprar billeteras caras",
+      "Debes memorizar todas las contraseñas"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Este lema significa que si alguien más (como un exchange) tiene tus claves privadas, ellos controlan tus fondos. Las verdaderas billeteras no custodiales te dan control completo sobre tus claves."
+  },
+  {
+    "question": "¿Qué debes hacer NUNCA con tu frase semilla?",
+    "options": [
+      "Escribirla en papel",
+      "Almacenarla digitalmente o compartirla con alguien",
+      "Guardarla en un lugar seguro",
+      "Hacer múltiples copias"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Nunca debes almacenar tu frase semilla digitalmente (fotos, correos electrónicos, nubes) o compartirla con nadie—ni siquiera con soporte técnico. Cualquiera con tu frase semilla puede acceder a todas tus criptomonedas."
+  }
+]
+

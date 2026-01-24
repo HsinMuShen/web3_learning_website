@@ -1,0 +1,63 @@
+[
+  {
+    "id": "1",
+    "question": "What does a cryptocurrency wallet actually store?",
+    "options": [
+      "Your cryptocurrency coins and tokens",
+      "Your private keys, public keys, and wallet addresses",
+      "Only your wallet address",
+      "A backup of the blockchain"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Cryptocurrency wallets don't actually store your crypto—your crypto always stays on the blockchain. Instead, wallets store your private keys (which prove ownership), public keys (which create addresses), and wallet addresses (where you receive crypto). Think of it like a key ring that holds keys to access your safety deposit box on the blockchain."
+  },
+  {
+    "id": "2",
+    "question": "What is a seed phrase (recovery phrase)?",
+    "options": [
+      "Your wallet password",
+      "A backup password for your exchange account",
+      "A set of 12 or 24 words that can recover all your private keys and addresses",
+      "The name of your wallet"
+    ],
+    "correctAnswer": 2,
+    "explanation": "A seed phrase (also called recovery phrase or mnemonic phrase) is usually 12 or 24 random words that can regenerate all your private keys and addresses. Instead of backing up each individual key, you back up one seed phrase. Anyone with your seed phrase has complete access to your funds, so it must be stored securely offline and never shared."
+  },
+  {
+    "id": "3",
+    "question": "What is the main difference between hot wallets and cold wallets?",
+    "options": [
+      "Hot wallets are more expensive than cold wallets",
+      "Hot wallets are connected to the internet while cold wallets store keys offline",
+      "Cold wallets only store Bitcoin",
+      "Hot wallets are illegal in most countries"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Hot wallets are connected to the internet, making them convenient for daily transactions but more vulnerable to hacks. Cold wallets (like hardware wallets) store your keys completely offline, providing maximum security but less convenience. Most experts recommend using both—hot wallets for small amounts and daily use, cold wallets for large amounts and long-term storage."
+  },
+  {
+    "id": "4",
+    "question": "Which of the following should you NEVER do with your seed phrase?",
+    "options": [
+      "Write it down on paper",
+      "Store it in multiple secure physical locations",
+      "Take a photo and store it in cloud storage",
+      "Keep it away from your computer and phone"
+    ],
+    "correctAnswer": 2,
+    "explanation": "You should NEVER store your seed phrase digitally—no photos, no cloud storage, no email, no text files. Digital storage can be hacked. Always write your seed phrase on paper (or engrave it on metal) and store it in secure physical locations like a safe or bank vault. Anyone who gets your seed phrase can steal all your crypto."
+  },
+  {
+    "id": "5",
+    "question": "What does the phrase 'Not your keys, not your crypto' mean?",
+    "options": [
+      "You need physical metal keys to access cryptocurrency",
+      "If you don't control your private keys (like on an exchange), you don't truly own your cryptocurrency",
+      "Cryptocurrency can only be stored on hardware with physical keys",
+      "You must memorize all your keys"
+    ],
+    "correctAnswer": 1,
+    "explanation": "This crucial crypto principle means that if you don't control your private keys directly, you don't truly own your cryptocurrency. When you keep crypto on an exchange, the exchange controls the keys—you're trusting them to hold your funds. If the exchange gets hacked, freezes your account, or goes bankrupt, you could lose your funds. To truly own your crypto, you need to control your own private keys in a personal wallet."
+  }
+]
+

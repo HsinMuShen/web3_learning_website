@@ -1,0 +1,63 @@
+[
+  {
+    "id": "1",
+    "question": "What is the main difference between Bitcoin and Ethereum?",
+    "options": [
+      "Bitcoin is faster than Ethereum",
+      "Bitcoin is primarily for payments, while Ethereum is a platform for running decentralized applications",
+      "Ethereum is older than Bitcoin",
+      "Bitcoin uses Proof of Stake while Ethereum uses Proof of Work"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Bitcoin was designed primarily as a peer-to-peer electronic cash system (digital money), while Ethereum was designed as a platform to run decentralized applications (dApps) using smart contracts. Think of Bitcoin as a calculator and Ethereum as a smartphone that can run many different apps."
+  },
+  {
+    "id": "2",
+    "question": "What are smart contracts?",
+    "options": [
+      "Legal contracts signed electronically",
+      "Self-executing programs that automatically carry out agreements when certain conditions are met",
+      "Contracts that require a lawyer to enforce",
+      "A type of cryptocurrency"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Smart contracts are self-executing programs that run on the Ethereum blockchain. They automatically execute agreements when predefined conditions are met, without needing intermediaries like lawyers or banks. For example, a vending machine is like a simple smart contract—when you insert money, it automatically gives you a product."
+  },
+  {
+    "id": "3",
+    "question": "What is the Ethereum Virtual Machine (EVM)?",
+    "options": [
+      "A physical computer that stores all Ethereum data",
+      "A global computer that runs on thousands of nodes worldwide and executes smart contracts",
+      "A video game console for blockchain games",
+      "A mining device for Ethereum"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The EVM is like a global computer that runs on thousands of nodes (computers) worldwide. Every node runs the EVM and executes the same instructions, ensuring that everyone gets the same results and applications run 24/7 without downtime. It's the engine that powers all smart contracts on Ethereum."
+  },
+  {
+    "id": "4",
+    "question": "What are gas fees used for in Ethereum?",
+    "options": [
+      "To buy Ether cryptocurrency",
+      "To pay validators for processing transactions and prevent network spam",
+      "To store data on your computer",
+      "To convert Ethereum to Bitcoin"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Gas fees serve three important purposes: (1) they pay validators for processing your transaction, (2) they prevent spam by making it expensive to flood the network, and (3) they allocate resources to those who need them most urgently. Think of gas like fuel for a car—simple transactions use less fuel, while complex smart contracts use more."
+  },
+  {
+    "id": "5",
+    "question": "What major change occurred during 'The Merge' in September 2022?",
+    "options": [
+      "Ethereum merged with Bitcoin",
+      "Ethereum transitioned from Proof of Work to Proof of Stake, reducing energy consumption by 99.95%",
+      "Ethereum became a centralized platform",
+      "Gas fees were eliminated"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The Merge was Ethereum's historic upgrade where it transitioned from Proof of Work (energy-intensive mining) to Proof of Stake (efficient staking). This reduced Ethereum's energy consumption by 99.95%, making it environmentally friendly. Instead of miners using powerful computers to solve puzzles, validators now stake 32 ETH to validate transactions."
+  }
+]
+

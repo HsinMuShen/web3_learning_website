@@ -1,0 +1,58 @@
+[
+  {
+    "question": "¿Qué hace que Ethereum sea diferente de Bitcoin?",
+    "options": [
+      "Ethereum puede ejecutar contratos inteligentes y aplicaciones descentralizadas",
+      "Ethereum es más rápido que Bitcoin",
+      "Ethereum usa menos energía",
+      "Ethereum es más barato"
+    ],
+    "correctAnswer": 0,
+    "explanation": "La diferencia clave es que Ethereum puede ejecutar contratos inteligentes y aplicaciones descentralizadas, mientras que Bitcoin fue diseñado principalmente como dinero digital."
+  },
+  {
+    "question": "¿Qué son los contratos inteligentes?",
+    "options": [
+      "Contratos escritos por abogados inteligentes",
+      "Programas autoejecutables que se ejecutan automáticamente cuando se cumplen condiciones",
+      "Contratos que requieren altas tarifas",
+      "Contratos que solo pueden ser usados por desarrolladores"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Los contratos inteligentes son programas autoejecutables que automáticamente llevan a cabo acuerdos cuando se cumplen ciertas condiciones, sin necesidad de intermediarios."
+  },
+  {
+    "question": "¿Qué es el 'gas' en Ethereum?",
+    "options": [
+      "Combustible para autos",
+      "El costo computacional de ejecutar operaciones en la red",
+      "Un tipo de criptomoneda",
+      "Un servicio de almacenamiento"
+    ],
+    "correctAnswer": 1,
+    "explanation": "El gas se refiere al costo computacional de ejecutar operaciones en Ethereum. Pagas tarifas de gas en ETH para compensar a los validadores por procesar tus transacciones."
+  },
+  {
+    "question": "¿Qué cambió cuando Ethereum pasó de Proof of Work a Proof of Stake?",
+    "options": [
+      "Ethereum dejó de funcionar",
+      "Ethereum usa ~99.95% menos energía",
+      "ETH perdió todo su valor",
+      "Los contratos inteligentes fueron eliminados"
+    ],
+    "correctAnswer": 1,
+    "explanation": "El cambio a Proof of Stake (La Fusión) hizo que Ethereum use aproximadamente 99.95% menos energía mientras mantiene todas sus características principales."
+  },
+  {
+    "question": "¿Cuál de estos NO es un caso de uso común en Ethereum?",
+    "options": [
+      "Finanzas Descentralizadas (DeFi)",
+      "Tokens No Fungibles (NFT)",
+      "Minería de Bitcoin",
+      "Organizaciones Autónomas Descentralizadas (DAO)"
+    ],
+    "correctAnswer": 2,
+    "explanation": "La minería de Bitcoin no es un caso de uso de Ethereum. Ethereum se usa para DeFi, NFT, DAO, juegos y muchas otras aplicaciones descentralizadas."
+  }
+]
+

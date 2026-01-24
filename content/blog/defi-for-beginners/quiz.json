@@ -1,0 +1,63 @@
+[
+  {
+    "id": "1",
+    "question": "What is DeFi (Decentralized Finance)?",
+    "options": [
+      "A new type of cryptocurrency",
+      "Financial services built on blockchain using smart contracts, without traditional intermediaries",
+      "A centralized banking system",
+      "A cryptocurrency exchange"
+    ],
+    "correctAnswer": 1,
+    "explanation": "DeFi (Decentralized Finance) refers to financial services—like lending, borrowing, and trading—built on blockchain technology using smart contracts. Unlike traditional finance, DeFi operates without banks or intermediaries, giving users direct control over their assets. Think of it as recreating financial services with code instead of companies."
+  },
+  {
+    "id": "2",
+    "question": "How do Decentralized Exchanges (DEXs) differ from centralized exchanges?",
+    "options": [
+      "DEXs are slower and more expensive",
+      "DEXs use liquidity pools and let you keep control of your funds, while centralized exchanges hold your funds",
+      "DEXs only support Bitcoin",
+      "DEXs require ID verification"
+    ],
+    "correctAnswer": 1,
+    "explanation": "DEXs like Uniswap use liquidity pools instead of order books, and you trade directly from your wallet—meaning you always control your funds. Centralized exchanges (like Coinbase) hold your crypto for you. While DEXs give you more control and privacy, you're responsible for gas fees and security. The key difference: with DEXs, you're always in control of your private keys."
+  },
+  {
+    "id": "3",
+    "question": "What is impermanent loss in liquidity pools?",
+    "options": [
+      "Permanently losing all your funds",
+      "A temporary decrease in value that becomes permanent when you withdraw",
+      "When token prices change significantly, you might earn less than if you simply held the tokens",
+      "Losing money due to gas fees"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Impermanent loss occurs when you provide liquidity to a pool and the price ratio of the tokens changes. For example, if you provide ETH/USDC and ETH doubles in price, the pool rebalances (you end up with less ETH, more USDC) and your total value might be less than if you'd just held the tokens. It's called 'impermanent' because if prices return to the original ratio, the loss disappears. However, it becomes permanent when you withdraw. Trading fees can help offset this loss."
+  },
+  {
+    "id": "4",
+    "question": "Why do DeFi loans require over-collateralization?",
+    "options": [
+      "To make more profit for the protocol",
+      "Because there's no credit check or legal recourse if borrowers don't repay",
+      "To prevent anyone from using DeFi",
+      "It's a mistake in the system"
+    ],
+    "correctAnswer": 1,
+    "explanation": "In DeFi, loans must be over-collateralized (you deposit more than you borrow) because there's no credit check, no ID verification, and no legal system to chase down defaulters. If you deposit $2,000 of ETH, you might borrow $1,400 of USDC. If the ETH price drops too much, your collateral gets automatically liquidated to protect lenders. This system allows DeFi to be permissionless and global—anyone can participate without approval, but you must prove you can cover the loan with collateral."
+  },
+  {
+    "id": "5",
+    "question": "What is the main risk of yield farming and high APY (Annual Percentage Yield) offers in DeFi?",
+    "options": [
+      "You earn too much money",
+      "High yields often indicate high risks including smart contract bugs, impermanent loss, and unsustainable tokenomics",
+      "It's illegal in most countries",
+      "You can only earn money in Bitcoin"
+    ],
+    "correctAnswer": 1,
+    "explanation": "When you see 100%+ APY yields in DeFi, they come with significant risks: (1) Smart contract bugs or hacks could drain funds, (2) Impermanent loss can reduce your value, (3) The protocol token being paid as rewards might lose value quickly, (4) New, unaudited protocols are more likely to have vulnerabilities or be scams ('rug pulls'). High yields are often used to attract early users but are rarely sustainable long-term. Always research protocols, check for audits, and never invest more than you can afford to lose. If it seems too good to be true, it usually is."
+  }
+]
+

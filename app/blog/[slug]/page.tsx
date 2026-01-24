@@ -16,6 +16,15 @@ import TransactionFlow from '@/components/educational/TransactionFlow'
 import NetworkDiagram from '@/components/educational/NetworkDiagram'
 import ProofOfWork from '@/components/educational/ProofOfWork'
 import DigitalSignature from '@/components/educational/DigitalSignature'
+import EthereumVsBitcoin from '@/components/educational/EthereumVsBitcoin'
+import SmartContractFlow from '@/components/educational/SmartContractFlow'
+import GasFeesDiagram from '@/components/educational/GasFeesDiagram'
+import WalletTypesComparison from '@/components/educational/WalletTypesComparison'
+import PrivateKeyExplainer from '@/components/educational/PrivateKeyExplainer'
+import WalletSecurityChecklist from '@/components/educational/WalletSecurityChecklist'
+import TradFiVsDeFi from '@/components/educational/TradFiVsDeFi'
+import DeFiEcosystem from '@/components/educational/DeFiEcosystem'
+import LiquidityPoolDiagram from '@/components/educational/LiquidityPoolDiagram'
 import { getServerTranslations } from '@/lib/i18n/server'
 import { getQuizBySlug } from '@/lib/quiz'
 import QuizTrigger from '@/components/quiz/QuizTrigger'
@@ -135,6 +144,15 @@ const mdxComponents = {
   NetworkDiagram,
   ProofOfWork,
   DigitalSignature,
+  EthereumVsBitcoin,
+  SmartContractFlow,
+  GasFeesDiagram,
+  WalletTypesComparison,
+  PrivateKeyExplainer,
+  WalletSecurityChecklist,
+  TradFiVsDeFi,
+  DeFiEcosystem,
+  LiquidityPoolDiagram,
 }
 
 export default async function BlogPostPage({ params }: BlogPostPageProps) {

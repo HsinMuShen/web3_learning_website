@@ -91,7 +91,7 @@ export default function DeFiEcosystem() {
             💡 All These Services Are Interconnected
           </p>
           <p className="text-sm text-gray-700">
-            DeFi protocols can work together like LEGO blocks—this is called "composability" or "money legos"
+            DeFi protocols can work together like LEGO blocks—this is called &quot;composability&quot; or &quot;money legos&quot;
           </p>
         </div>
       </div>

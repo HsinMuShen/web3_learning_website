@@ -163,7 +163,7 @@ export default function LiquidityPoolDiagram() {
             </p>
             <div className="bg-white rounded-lg p-3 border border-yellow-300">
               <p className="text-xs text-gray-600 text-center">
-                <strong>Example:</strong> If ETH price doubles, you'll have less ETH in the pool but more USDC.
+                <strong>Example:</strong> If ETH price doubles, you&apos;ll have less ETH in the pool but more USDC.
                 The trading fees need to compensate for this potential loss.
               </p>
             </div>

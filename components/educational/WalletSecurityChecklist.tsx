@@ -129,7 +129,7 @@ export default function WalletSecurityChecklist() {
                 <li className="flex items-start gap-2">
                   <span>•</span>
                   <span>
-                    <strong>Airdrop Scams:</strong> Don't click suspicious links promising free tokens
+                    <strong>Airdrop Scams:</strong> Don&apos;t click suspicious links promising free tokens
                   </span>
                 </li>
                 <li className="flex items-start gap-2">
@@ -148,10 +148,10 @@ export default function WalletSecurityChecklist() {
           <div className="text-4xl mb-2">🏆</div>
           <h4 className="text-lg font-bold text-gray-900 mb-2">The Golden Rule</h4>
           <p className="text-base text-gray-700 font-semibold">
-            "Not your keys, not your crypto"
+            &quot;Not your keys, not your crypto&quot;
           </p>
           <p className="text-sm text-gray-600 mt-2">
-            If you don't control your private keys, you don't truly own your cryptocurrency
+            If you don&apos;t control your private keys, you don&apos;t truly own your cryptocurrency
           </p>
         </div>
       </div>

@@ -35,6 +35,7 @@ import Tag from '@/components/blog/Tag'
 import { getServerTranslations } from '@/lib/i18n/server'
 import { getQuizBySlug } from '@/lib/quiz'
 import QuizTrigger from '@/components/quiz/QuizTrigger'
+import ArticleCompletionTracker from '@/components/learning-path/ArticleCompletionTracker'
 
 interface BlogPostPageProps {
   params: Promise<{
@@ -187,6 +188,9 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
   return (
     <>
+      {/* Article Completion Tracker */}
+      <ArticleCompletionTracker slug={slug} readingTime={post.readingTime} />
+      
       <article>
         {/* Hero Section */}
         <Section className="bg-gradient-to-b from-primary-50 to-white">

@@ -1,0 +1,49 @@
+{
+  "id": "defi",
+  "title": {
+    "en": "DeFi Specialist Track",
+    "es": "Ruta de Especialista en DeFi",
+    "zh-TW": "DeFi 專家路徑"
+  },
+  "description": {
+    "en": "Become a DeFi expert. Learn about decentralized finance protocols, liquidity, and how to navigate the DeFi ecosystem safely.",
+    "es": "Conviértete en un experto en DeFi. Aprende sobre protocolos de finanzas descentralizadas, liquidez y cómo navegar de forma segura en el ecosistema DeFi.",
+    "zh-TW": "成為 DeFi 專家。學習去中心化金融協議、流動性以及如何安全地導航 DeFi 生態系統。"
+  },
+  "icon": "💰",
+  "difficulty": "intermediate",
+  "estimatedTime": 150,
+  "badge": {
+    "id": "defi-expert",
+    "name": {
+      "en": "DeFi Expert",
+      "es": "Experto en DeFi",
+      "zh-TW": "DeFi 專家"
+    },
+    "icon": "💎"
+  },
+  "articles": [
+    {
+      "slug": "defi-for-beginners",
+      "order": 1,
+      "required": true
+    },
+    {
+      "slug": "ethereum-explained",
+      "order": 2,
+      "required": true
+    },
+    {
+      "slug": "smart-contract-security",
+      "order": 3,
+      "required": true
+    },
+    {
+      "slug": "layer2-solutions",
+      "order": 4,
+      "required": false
+    }
+  ],
+  "prerequisites": ["beginner"],
+  "nextTracks": ["technical", "web3"]
+}

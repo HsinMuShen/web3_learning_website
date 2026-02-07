@@ -19,6 +19,7 @@ export default function Header({ locale, translations: t }: HeaderProps) {
     { href: '/', label: t.common.home },
     { href: '/about', label: t.common.about },
     { href: '/blog', label: t.common.blog },
+    { href: '/learning-path', label: t.common.learningPath },
   ]
 
   return (

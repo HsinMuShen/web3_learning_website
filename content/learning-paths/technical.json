@@ -1,0 +1,49 @@
+{
+  "id": "technical",
+  "title": {
+    "en": "Technical Deep Dive Track",
+    "es": "Ruta de Inmersión Técnica",
+    "zh-TW": "技術深度探索路徑"
+  },
+  "description": {
+    "en": "Master the technical foundations of blockchain technology. Understand consensus mechanisms, security, and scalability solutions.",
+    "es": "Domina los fundamentos técnicos de la tecnología blockchain. Comprende los mecanismos de consenso, seguridad y soluciones de escalabilidad.",
+    "zh-TW": "掌握區塊鏈技術的技術基礎。了解共識機制、安全性和可擴展性解決方案。"
+  },
+  "icon": "🔧",
+  "difficulty": "intermediate",
+  "estimatedTime": 180,
+  "badge": {
+    "id": "blockchain-builder",
+    "name": {
+      "en": "Blockchain Builder",
+      "es": "Constructor de Blockchain",
+      "zh-TW": "區塊鏈建構者"
+    },
+    "icon": "🏗️"
+  },
+  "articles": [
+    {
+      "slug": "consensus-mechanisms-compared",
+      "order": 1,
+      "required": true
+    },
+    {
+      "slug": "smart-contract-security",
+      "order": 2,
+      "required": true
+    },
+    {
+      "slug": "layer2-solutions",
+      "order": 3,
+      "required": true
+    },
+    {
+      "slug": "mining-and-staking",
+      "order": 4,
+      "required": true
+    }
+  ],
+  "prerequisites": ["beginner"],
+  "nextTracks": ["defi", "web3"]
+}

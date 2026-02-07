@@ -1,0 +1,49 @@
+{
+  "id": "web3",
+  "title": {
+    "en": "Web3 Pioneer Track",
+    "es": "Ruta de Pionero Web3",
+    "zh-TW": "Web3 先鋒路徑"
+  },
+  "description": {
+    "en": "Explore the future of the internet. Understand decentralized applications, DAOs, and how Web3 is transforming digital experiences.",
+    "es": "Explora el futuro de internet. Comprende las aplicaciones descentralizadas, DAOs y cómo Web3 está transformando las experiencias digitales.",
+    "zh-TW": "探索互聯網的未來。了解去中心化應用程序、DAO 以及 Web3 如何改變數位體驗。"
+  },
+  "icon": "🌐",
+  "difficulty": "intermediate",
+  "estimatedTime": 120,
+  "badge": {
+    "id": "web3-pioneer",
+    "name": {
+      "en": "Web3 Pioneer",
+      "es": "Pionero Web3",
+      "zh-TW": "Web3 先鋒"
+    },
+    "icon": "🚀"
+  },
+  "articles": [
+    {
+      "slug": "web3-decentralized-internet",
+      "order": 1,
+      "required": true
+    },
+    {
+      "slug": "daos-explained",
+      "order": 2,
+      "required": true
+    },
+    {
+      "slug": "ethereum-explained",
+      "order": 3,
+      "required": true
+    },
+    {
+      "slug": "smart-contract-security",
+      "order": 4,
+      "required": false
+    }
+  ],
+  "prerequisites": ["beginner"],
+  "nextTracks": ["technical", "defi"]
+}

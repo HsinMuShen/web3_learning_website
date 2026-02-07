@@ -1,0 +1,49 @@
+{
+  "id": "beginner",
+  "title": {
+    "en": "Absolute Beginner Track",
+    "es": "Ruta para Principiantes Absolutos",
+    "zh-TW": "絕對初學者路徑"
+  },
+  "description": {
+    "en": "Start your Web3 journey from scratch. Learn the fundamentals of blockchain, cryptocurrency, and digital wallets.",
+    "es": "Comienza tu viaje Web3 desde cero. Aprende los fundamentos de blockchain, criptomonedas y billeteras digitales.",
+    "zh-TW": "從零開始您的 Web3 之旅。學習區塊鏈、加密貨幣和數位錢包的基礎知識。"
+  },
+  "icon": "🌱",
+  "difficulty": "beginner",
+  "estimatedTime": 90,
+  "badge": {
+    "id": "crypto-curious",
+    "name": {
+      "en": "Crypto Curious",
+      "es": "Curioso de Cripto",
+      "zh-TW": "加密好奇者"
+    },
+    "icon": "🏅"
+  },
+  "articles": [
+    {
+      "slug": "bitcoin-whitepaper-explained",
+      "order": 1,
+      "required": true
+    },
+    {
+      "slug": "cryptocurrency-wallets-explained",
+      "order": 2,
+      "required": true
+    },
+    {
+      "slug": "ethereum-explained",
+      "order": 3,
+      "required": true
+    },
+    {
+      "slug": "defi-for-beginners",
+      "order": 4,
+      "required": true
+    }
+  ],
+  "prerequisites": [],
+  "nextTracks": ["technical", "defi", "web3"]
+}

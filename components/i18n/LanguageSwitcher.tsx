@@ -59,7 +59,7 @@ export default function LanguageSwitcher({ currentLocale }: LanguageSwitcherProp
             className="fixed inset-0 z-10"
             onClick={() => setIsOpen(false)}
           />
-          <div className="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-gray-200 z-20">
+          <div className="absolute left-0 md:right-0 md:left-auto mt-2 w-48 bg-white rounded-lg shadow-lg border border-gray-200 z-20">
             <div className="py-1">
               {Object.entries(localeNames).map(([locale, name]) => (
                 <button

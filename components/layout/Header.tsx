@@ -37,17 +37,19 @@ export default function Header({ locale, translations: t }: HeaderProps) {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-6">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-gray-700 hover:text-primary-600 transition-colors font-medium"
+                className="text-gray-700 hover:text-primary-600 transition-colors font-medium text-sm"
               >
                 {link.label}
               </Link>
             ))}
-            <LanguageSwitcher currentLocale={locale} />
+            <div className="pl-4 border-l border-gray-300">
+              <LanguageSwitcher currentLocale={locale} />
+            </div>
           </div>
 
           {/* Mobile Menu Button */}
@@ -95,6 +97,13 @@ export default function Header({ locale, translations: t }: HeaderProps) {
                     {link.label}
                   </Link>
                 ))}
+                {/* Language Switcher for Mobile */}
+                <div className="px-4 py-2 border-t border-gray-200 mt-2 pt-4">
+                  <div className="text-xs font-semibold text-gray-500 mb-2 uppercase">
+                    Language
+                  </div>
+                  <LanguageSwitcher currentLocale={locale} />
+                </div>
               </div>
             </motion.div>
           )}

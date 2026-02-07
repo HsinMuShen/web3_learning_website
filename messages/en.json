@@ -79,7 +79,8 @@
     "noPosts": "No blog posts yet. Check back soon!",
     "postNotFound": "Post Not Found",
     "postNotFoundDesc": "The blog post you're looking for doesn't exist or has been moved.",
-    "backToBlog": "Back to Blog"
+    "backToBlog": "Back to Blog",
+    "clickToLearnMore": "Click to learn more →"
   },
   "quiz": {
     "title": "Test Your Knowledge",

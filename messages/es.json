@@ -79,7 +79,8 @@
     "noPosts": "Aún no hay publicaciones de blog. ¡Vuelve pronto!",
     "postNotFound": "Publicación No Encontrada",
     "postNotFoundDesc": "La publicación de blog que buscas no existe o ha sido movida.",
-    "backToBlog": "Volver al Blog"
+    "backToBlog": "Volver al Blog",
+    "clickToLearnMore": "Haz clic para saber más →"
   },
   "quiz": {
     "title": "Pon a Prueba Tu Conocimiento",

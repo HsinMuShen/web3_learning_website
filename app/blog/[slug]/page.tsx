@@ -36,6 +36,7 @@ import { getServerTranslations } from '@/lib/i18n/server'
 import { getQuizBySlug } from '@/lib/quiz'
 import QuizTrigger from '@/components/quiz/QuizTrigger'
 import ArticleCompletionTracker from '@/components/learning-path/ArticleCompletionTracker'
+import GlossaryTerm from '@/components/glossary/GlossaryTerm'
 
 interface BlogPostPageProps {
   params: Promise<{
@@ -169,11 +170,30 @@ const mdxComponents = {
   SecurityVulnerabilities,
 }
 
+function createGlossaryTerm(locale: string, learnMoreText: string) {
+  return function GlossaryTermWithLocale(props: { children: string; term?: string }) {
+    return (
+      <GlossaryTerm
+        {...props}
+        locale={locale}
+        learnMoreText={learnMoreText}
+      />
+    )
+  }
+}
+
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
   const { slug } = await params
   const { locale, translations } = await getServerTranslations()
   const post = getPostBySlug(slug, locale)
   const quizQuestions = getQuizBySlug(slug, locale)
+  const learnMoreText =
+    (translations.blog as { clickToLearnMore?: string } | undefined)?.clickToLearnMore ??
+    'Click to learn more →'
+  const mdxComponentsWithLocale = {
+    ...mdxComponents,
+    GlossaryTerm: createGlossaryTerm(locale, learnMoreText),
+  }
 
   if (!post) {
     notFound()
@@ -235,7 +255,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           <div className="max-w-4xl mx-auto prose prose-lg max-w-none overflow-x-hidden">
             <MDXRemote
               source={post.content}
-              components={mdxComponents}
+              components={mdxComponentsWithLocale}
               options={{
                 mdxOptions: {
                   remarkPlugins: [remarkGfm],

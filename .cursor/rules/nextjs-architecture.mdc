@@ -1,0 +1,119 @@
+---
+description: Next.js App Router architecture and server/client component patterns
+alwaysApply: true
+---
+
+# Next.js Architecture Rules
+
+## Server vs Client Components
+
+### Server Components (Default)
+- Pages in `app/` are server components by default
+- Can use Node.js APIs (`fs`, `path`, etc.)
+- Can directly access database/filesystem
+- Cannot use React hooks or browser APIs
+- Use `async/await` for data fetching
+
+```typescript
+// ✅ GOOD - Server Component
+import { getServerTranslations } from '@/lib/i18n/server'
+import { getAllPosts } from '@/lib/blog' // Uses 'fs' module
+
+export default async function BlogPage() {
+  const { locale, translations } = await getServerTranslations()
+  const posts = getAllPosts(locale)
+  return <div>...</div>
+}
+```
+
+### Client Components
+- Mark with `'use client'` directive at top
+- Can use React hooks (useState, useEffect, etc.)
+- Can access browser APIs (localStorage, window, etc.)
+- **CANNOT import server-only modules** (`fs`, `path`, etc.)
+
+```typescript
+// ✅ GOOD - Client Component
+'use client'
+
+import { useState, useEffect } from 'react'
+import { getUserProgress } from '@/lib/progress-tracker' // Pure client-side
+
+export default function ProgressTracker() {
+  const [progress, setProgress] = useState(null)
+  
+  useEffect(() => {
+    setProgress(getUserProgress())
+  }, [])
+  
+  return <div>...</div>
+}
+```
+
+### Critical Error to Avoid
+
+```typescript
+// ❌ BAD - Importing server modules in client component
+'use client'
+
+import { getAllPosts } from '@/lib/blog' // ERROR: Uses 'fs' module!
+
+// ✅ GOOD - Pass data as props from server component
+'use client'
+
+interface Props {
+  posts: BlogPost[] // Data from server
+}
+
+export default function ClientList({ posts }: Props) {
+  return <div>...</div>
+}
+```
+
+## Hydration Errors
+
+### Prevent Server/Client Mismatch
+
+```typescript
+// ❌ BAD - Causes hydration error
+'use client'
+
+export default function Component() {
+  const data = localStorage.getItem('key') // Available on client, not server
+  return <div>{data}</div> // Mismatch!
+}
+
+// ✅ GOOD - Wait for client mount
+'use client'
+
+export default function Component() {
+  const [data, setData] = useState(null)
+  
+  useEffect(() => {
+    setData(localStorage.getItem('key'))
+  }, [])
+  
+  if (!data) return null // Return null during server render
+  return <div>{data}</div>
+}
+```
+
+## File Organization
+
+```
+app/
+  page.tsx              # Server component (default)
+  blog/
+    page.tsx            # Server component
+    ClientList.tsx      # Client component (pass data as props)
+  
+lib/
+  blog.ts               # Server-side (uses fs/path)
+  progress-tracker.ts   # Client-side (uses localStorage)
+  
+components/
+  ui/                   # Can be server or client
+  blog/
+    BlogCard.tsx        # Server component (no interactivity)
+    BlogList.tsx        # Server component
+```

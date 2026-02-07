@@ -1,0 +1,134 @@
+---
+description: Design system, styling patterns, and UI consistency
+alwaysApply: true
+---
+
+# Design System Rules
+
+## Color Palette
+
+### Primary Colors
+- `primary-50` - Light background
+- `primary-100` - Lighter accent
+- `primary-600` - Main brand color
+- `primary-700` - Hover states
+
+### Neutral Colors
+- `gray-50` - Alternate section backgrounds
+- `gray-100` - Subtle borders/dividers
+- `gray-200` - Regular borders
+- `gray-600` - Body text
+- `gray-900` - Headings
+
+### Semantic Colors
+- `green-500/600` - Success, completion
+- `yellow-50/200` - Warnings, prerequisites
+- `red-100/800` - Errors (used sparingly)
+
+## Typography
+
+```typescript
+// Headings
+<h1 className="text-4xl md:text-5xl font-bold text-gray-900">
+<h2 className="text-3xl md:text-4xl font-bold text-gray-900">
+<h3 className="text-xl font-semibold text-gray-900">
+
+// Body
+<p className="text-gray-600">
+<p className="text-sm text-gray-500"> // Small text
+```
+
+## Component Patterns
+
+### Cards (Consistent Style)
+
+```typescript
+// ✅ GOOD - Use Card component
+import Card from '@/components/ui/Card'
+
+<Card hover className="...">
+  <h3 className="text-xl font-semibold text-gray-900 mb-2">Title</h3>
+  <p className="text-gray-600">Description</p>
+</Card>
+
+// ❌ BAD - Complex custom styles
+<div className="bg-white dark:bg-gray-800 rounded-lg border-2 border-blue-500 shadow-xl hover:shadow-2xl transform transition-all...">
+```
+
+### Sections
+
+```typescript
+// ✅ GOOD - Consistent section backgrounds
+<Section className="bg-gradient-to-b from-primary-50 to-white">
+<Section className="bg-gray-50">
+<Section> // White background (default)
+
+// ❌ BAD - Avoid complex gradients
+<Section className="bg-gradient-to-r from-blue-500 via-purple-600 to-pink-500">
+```
+
+### Buttons
+
+```typescript
+import Button from '@/components/ui/Button'
+
+<Button href="/path" size="lg">Primary Action</Button>
+<Button href="/path" size="lg" variant="secondary">Secondary</Button>
+```
+
+## Dark Mode
+
+**DO NOT USE dark mode classes** - This project uses light mode only.
+
+```typescript
+// ❌ BAD - Avoid dark mode
+<div className="bg-white dark:bg-gray-800 text-gray-900 dark:text-white">
+
+// ✅ GOOD - Light mode only
+<div className="bg-white text-gray-900">
+```
+
+## Spacing & Layout
+
+```typescript
+// Section padding
+<Section> // Built-in consistent padding
+
+// Card padding
+<Card className="p-6"> // Standard card padding
+
+// Grid layouts
+<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+```
+
+## Icons
+
+Use `lucide-react` for consistent iconography:
+
+```typescript
+import { BookOpen, Clock, Award } from 'lucide-react'
+
+<BookOpen className="w-5 h-5 text-primary-600" />
+```
+
+## Hover Effects
+
+```typescript
+// ✅ GOOD - Subtle hover
+<Card hover> // Built-in hover effect
+
+// Links
+<Link className="text-primary-600 hover:text-primary-700">
+
+// ❌ BAD - Too much transformation
+<div className="hover:scale-150 hover:rotate-45 hover:shadow-2xl">
+```
+
+## Consistency Checklist
+
+- [ ] Use `Card` component for card layouts
+- [ ] Use `primary-*` colors, not `blue-*` or `purple-*`
+- [ ] No dark mode classes
+- [ ] Icons from `lucide-react`
+- [ ] Consistent padding/spacing
+- [ ] `text-gray-900` for headings, `text-gray-600` for body

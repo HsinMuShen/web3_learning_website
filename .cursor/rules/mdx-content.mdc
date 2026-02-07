@@ -1,0 +1,95 @@
+---
+description: MDX blog content patterns and educational components
+globs: content/blog/**/*.mdx
+alwaysApply: false
+---
+
+# MDX Content Rules
+
+## Required Frontmatter
+
+```yaml
+---
+title: "Article Title"
+slug: "article-slug"
+date: "2026-01-22"  # Format: YYYY-MM-DD
+description: "Brief description for SEO and cards"
+readingTime: 15     # In minutes
+category: "Blockchain"
+tags: ["bitcoin", "blockchain", "cryptocurrency"]
+featured: false
+---
+```
+
+## Educational Components
+
+Available components in MDX:
+
+```markdown
+<ConceptCard title="Key Concept">
+  Explanation of important concept
+</ConceptCard>
+
+<BlockchainDiagram />
+<TransactionFlow />
+<NetworkDiagram />
+<ProofOfWork />
+<EthereumVsBitcoin />
+<SmartContractFlow />
+<DeFiEcosystem />
+<ConsensusComparison />
+<Layer2Comparison />
+<DAOStructure />
+<Web3Evolution />
+<MiningVsStaking />
+<SecurityVulnerabilities />
+```
+
+## Common MDX Issues
+
+### Special Characters in Text
+
+```markdown
+❌ BAD - Causes parsing error
+- Cheap electricity (<$0.05/kWh)
+
+✅ GOOD - Use "less than" or escape
+- Cheap electricity (less than $0.05/kWh)
+```
+
+### Component Imports
+
+Components are auto-imported in `app/blog/[slug]/page.tsx`:
+
+```typescript
+const mdxComponents = {
+  ConceptCard,
+  BlockchainDiagram,
+  // ... all components
+}
+```
+
+**New components must be:**
+1. Created in `components/educational/`
+2. Imported in `app/blog/[slug]/page.tsx`
+3. Added to `mdxComponents` object
+
+### Image Paths
+
+```markdown
+✅ GOOD - Use web URLs or public folder
+![Diagram](https://example.com/image.png)
+![Diagram](/images/diagram.png)
+
+❌ BAD - Relative paths don't work
+![Diagram](./diagram.png)
+```
+
+## Multi-Language Content
+
+Each article needs 3 files:
+- `index.mdx` (English)
+- `index.es.mdx` (Spanish)
+- `index.zh-TW.mdx` (Traditional Chinese)
+
+All must have identical structure and components.

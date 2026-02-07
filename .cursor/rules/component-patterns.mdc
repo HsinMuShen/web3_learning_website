@@ -1,0 +1,148 @@
+---
+description: React component patterns and best practices
+globs: "**/*.tsx"
+alwaysApply: false
+---
+
+# Component Patterns
+
+## Animation Components
+
+Use existing animation wrappers:
+
+```typescript
+import AnimatedCard from '@/components/ui/AnimatedCard'
+import AnimatedSection from '@/components/ui/AnimatedSection'
+import AnimatedHeading from '@/components/ui/AnimatedHeading'
+
+// ✅ GOOD - Use provided components
+<AnimatedSection>
+  <AnimatedCard index={0}>
+    <h3>Title</h3>
+  </AnimatedCard>
+</AnimatedSection>
+```
+
+## Reusable UI Components
+
+Located in `components/ui/`:
+- `Button.tsx` - Standard buttons
+- `Card.tsx` - Card wrapper
+- `Section.tsx` - Page sections
+- `AnimatedCard.tsx` - Animated card
+- `AnimatedSection.tsx` - Animated section
+- `AnimatedHeading.tsx` - Animated heading
+- `AnimatedDiv.tsx` - Generic animated div
+
+Always prefer these over creating custom styled divs.
+
+## Component Organization
+
+```
+components/
+  ui/              # Reusable UI primitives
+  blog/            # Blog-specific components
+  educational/     # Educational diagrams/visualizations
+  learning-path/   # Learning path features
+  layout/          # Layout components (Header, Footer)
+  i18n/            # Language switcher
+```
+
+## Client Component Patterns
+
+### State Management
+
+```typescript
+'use client'
+
+import { useState, useEffect } from 'react'
+
+export default function Component() {
+  const [data, setData] = useState<DataType | null>(null)
+  
+  useEffect(() => {
+    // Load data
+    const loadData = async () => {
+      const result = await fetchData()
+      setData(result)
+    }
+    loadData()
+  }, [])
+  
+  if (!data) return <LoadingSkeleton />
+  return <div>{data.content}</div>
+}
+```
+
+### Loading States
+
+```typescript
+// ✅ GOOD - Show loading skeleton
+if (!data) {
+  return (
+    <div className="animate-pulse">
+      <div className="h-8 bg-gray-200 rounded w-1/3 mb-4" />
+      <div className="h-4 bg-gray-200 rounded w-full" />
+    </div>
+  )
+}
+
+// ❌ BAD - Return null (flashes content)
+if (!data) return null
+```
+
+## Prop Passing
+
+```typescript
+// ✅ GOOD - Pass data from server to client
+// server-component.tsx
+export default async function ServerPage() {
+  const data = await fetchServerData() // Server-side
+  return <ClientComponent data={data} />
+}
+
+// client-component.tsx
+'use client'
+export default function ClientComponent({ data }: Props) {
+  // Use data
+}
+```
+
+## Link Components
+
+```typescript
+import Link from 'next/link'
+
+// ✅ GOOD - Next.js Link for internal routes
+<Link href="/blog" className="text-primary-600 hover:text-primary-700">
+  Blog
+</Link>
+
+// ✅ GOOD - Regular anchor for external links
+<a href="https://external.com" target="_blank" rel="noopener noreferrer">
+  External
+</a>
+```
+
+## Image Components
+
+```typescript
+import Image from 'next/image'
+
+// ✅ GOOD - Next.js Image with dimensions
+<Image
+  src="/images/logo.png"
+  alt="Logo"
+  width={200}
+  height={100}
+  className="..."
+/>
+
+// For dynamic images
+<Image
+  src={post.featuredImage}
+  alt={post.title}
+  fill
+  className="object-cover"
+/>
+```

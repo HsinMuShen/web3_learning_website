@@ -25,6 +25,12 @@ import WalletSecurityChecklist from '@/components/educational/WalletSecurityChec
 import TradFiVsDeFi from '@/components/educational/TradFiVsDeFi'
 import DeFiEcosystem from '@/components/educational/DeFiEcosystem'
 import LiquidityPoolDiagram from '@/components/educational/LiquidityPoolDiagram'
+import ConsensusComparison from '@/components/educational/ConsensusComparison'
+import Layer2Comparison from '@/components/educational/Layer2Comparison'
+import DAOStructure from '@/components/educational/DAOStructure'
+import Web3Evolution from '@/components/educational/Web3Evolution'
+import MiningVsStaking from '@/components/educational/MiningVsStaking'
+import SecurityVulnerabilities from '@/components/educational/SecurityVulnerabilities'
 import { getServerTranslations } from '@/lib/i18n/server'
 import { getQuizBySlug } from '@/lib/quiz'
 import QuizTrigger from '@/components/quiz/QuizTrigger'
@@ -153,6 +159,12 @@ const mdxComponents = {
   TradFiVsDeFi,
   DeFiEcosystem,
   LiquidityPoolDiagram,
+  ConsensusComparison,
+  Layer2Comparison,
+  DAOStructure,
+  Web3Evolution,
+  MiningVsStaking,
+  SecurityVulnerabilities,
 }
 
 export default async function BlogPostPage({ params }: BlogPostPageProps) {

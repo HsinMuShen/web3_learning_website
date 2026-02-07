@@ -2,10 +2,16 @@
 
 import Link from 'next/link'
 import { CheckCircle2, Circle, Lock } from 'lucide-react'
-import { BlogPost } from '@/lib/blog'
+
+interface Article {
+  slug: string
+  title: string
+  description: string
+  readingTime: number
+}
 
 interface ArticleCheckpointProps {
-  article: BlogPost
+  article: Article
   order: number
   isCompleted: boolean
   isLocked?: boolean

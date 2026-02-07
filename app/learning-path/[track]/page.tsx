@@ -47,7 +47,16 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 export default async function TrackPage({ params }: PageProps) {
   const { track: trackId } = await params
-  const { locale } = await getServerTranslations()
+  const { locale, translations } = await getServerTranslations()
+  const t = (key: string) => {
+    const keys = key.split('.')
+    let value: any = translations
+    for (const k of keys) {
+      value = value?.[k]
+    }
+    return value || key
+  }
+  
   const track = getLearningTrackWithPosts(trackId, locale)
 
   if (!track) {
@@ -59,15 +68,12 @@ export default async function TrackPage({ params }: PageProps) {
   const badgeName = getLocalizedBadgeName(track.badge, locale)
 
   const difficultyLabels = {
-    beginner: { en: 'Beginner', es: 'Principiante', 'zh-TW': '初學者' },
-    intermediate: { en: 'Intermediate', es: 'Intermedio', 'zh-TW': '中級' },
-    advanced: { en: 'Advanced', es: 'Avanzado', 'zh-TW': '高級' },
+    beginner: t('blog.difficulty.beginner'),
+    intermediate: t('blog.difficulty.intermediate'),
+    advanced: t('blog.difficulty.advanced'),
   }
 
-  const difficultyLabel =
-    difficultyLabels[track.difficulty][
-      locale as keyof typeof difficultyLabels[typeof track.difficulty]
-    ] || difficultyLabels[track.difficulty].en
+  const difficultyLabel = difficultyLabels[track.difficulty]
 
   return (
     <>
@@ -80,7 +86,7 @@ export default async function TrackPage({ params }: PageProps) {
             className="inline-flex items-center space-x-2 text-primary-600 hover:text-primary-700 mb-6"
           >
             <ArrowLeft className="w-4 h-4" />
-            <span>Back to Learning Paths</span>
+            <span>{t('learningPath.backToLearningPaths')}</span>
           </Link>
 
           {/* Track Header */}
@@ -97,7 +103,7 @@ export default async function TrackPage({ params }: PageProps) {
                 <div className="flex items-center space-x-1 text-gray-600">
                   <BookOpen className="w-4 h-4" />
                   <span className="text-sm">
-                    {track.articles.length} articles
+                    {track.articles.length} {t('learningPath.articles')}
                   </span>
                 </div>
                 <div className="flex items-center space-x-1 text-gray-600">
@@ -116,7 +122,7 @@ export default async function TrackPage({ params }: PageProps) {
             <div className="flex items-center space-x-4">
               <div className="text-5xl">{track.badge.icon}</div>
               <div>
-                <p className="text-sm text-gray-600 mb-1">Complete this track to earn:</p>
+                <p className="text-sm text-gray-600 mb-1">{t('learningPath.completeArticles')}</p>
                 <p className="text-2xl font-bold text-gray-900">{badgeName}</p>
               </div>
             </div>
@@ -132,12 +138,11 @@ export default async function TrackPage({ params }: PageProps) {
               <div className="text-2xl">⚠️</div>
               <div>
                 <h3 className="font-semibold text-gray-900 mb-1">
-                  Prerequisites Required
+                  {t('learningPath.prerequisitesRequired')}
                 </h3>
                 <p className="text-sm text-gray-600">
-                  It's recommended to complete the{' '}
-                  <strong>{track.prerequisites.join(', ')}</strong> track(s) before
-                  starting this one.
+                  {t('learningPath.prerequisitesDesc')}{' '}
+                  <strong>{track.prerequisites.join(', ')}</strong> {t('learningPath.prerequisitesDesc2')}
                 </p>
               </div>
             </div>
@@ -148,7 +153,26 @@ export default async function TrackPage({ params }: PageProps) {
       {/* Track Content - Client Component for Progress Tracking */}
       <Section>
         <div className="max-w-4xl mx-auto">
-          <ClientTrackView track={track} locale={locale} />
+          <ClientTrackView 
+            track={track} 
+            locale={locale}
+            translations={{
+              yourProgress: t('learningPath.yourProgress'),
+              completed: t('learningPath.completed'),
+              optional: t('learningPath.optional'),
+              required: t('learningPath.required'),
+              of: t('learningPath.of'),
+              articles: t('learningPath.articles'),
+              trackCompleted: t('learningPath.trackCompleted'),
+              congratulations: t('learningPath.congratulations'),
+              badge: t('learningPath.badge'),
+              learningTips: t('learningPath.learningTips'),
+              learningTip1: t('learningPath.learningTip1'),
+              learningTip2: t('learningPath.learningTip3'),
+              learningTip3: t('learningPath.learningTip3'),
+              learningTip4: t('learningPath.learningTip4'),
+            }}
+          />
         </div>
       </Section>
 
@@ -158,11 +182,10 @@ export default async function TrackPage({ params }: PageProps) {
           <div className="max-w-4xl mx-auto">
             <AnimatedSection>
               <h2 className="text-2xl font-bold text-gray-900 mb-4">
-                What's Next?
+                {t('learningPath.whatsNext')}
               </h2>
               <p className="text-gray-600 mb-6">
-                After completing this track, you can explore these related learning
-                paths:
+                {t('learningPath.whatsNextDesc')}
               </p>
               <div className="flex flex-wrap gap-3">
                 {track.nextTracks.map((nextTrackId) => (

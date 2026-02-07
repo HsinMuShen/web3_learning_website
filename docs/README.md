@@ -11,6 +11,7 @@ This folder contains all project documentation, implementation plans, and develo
 - **[IMPLEMENTATION_PLAN.md](./IMPLEMENTATION_PLAN.md)** - Original implementation plan for the website
 - **[TODO.md](./TODO.md)** - Current task list and pending items
 - **[LEARNING_PATH_IMPLEMENTATION.md](./LEARNING_PATH_IMPLEMENTATION.md)** - ✅ Complete implementation of Learning Path System
+- **[GLOSSARY_IMPLEMENTATION.md](./GLOSSARY_IMPLEMENTATION.md)** - ✅ Complete implementation of Web3 Glossary
 
 ### Development History
 - **[BLOG_UPDATES_SUMMARY.md](./BLOG_UPDATES_SUMMARY.md)** - Summary of blog content updates
@@ -76,16 +77,15 @@ When creating new documentation:
 - Responsive design
 - SEO optimization
 - **Learning Path System** (4 tracks, progress tracking, badges) 🎉
+- **Interactive Web3 Glossary** (20 terms, search, filtering) 📖
 
 ### In Progress 🚧
 - None currently
 
 ### Upcoming 🔮
-- Learning Path System
-- Interactive Web3 Glossary
 - Interactive Playground/Simulator
-- Smart Search
-- Discussion System
+- Smart Search with AI Suggestions
+- Discussion System / Q&A
 
 ---
 

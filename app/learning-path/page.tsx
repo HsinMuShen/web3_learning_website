@@ -18,7 +18,16 @@ export const metadata: Metadata = {
 }
 
 export default async function LearningPathPage() {
-  const { locale } = await getServerTranslations()
+  const { locale, translations } = await getServerTranslations()
+  const t = (key: string) => {
+    const keys = key.split('.')
+    let value: any = translations
+    for (const k of keys) {
+      value = value?.[k]
+    }
+    return value || key
+  }
+  
   const tracks = getAllLearningTracksWithPosts(locale)
 
   return (
@@ -28,26 +37,36 @@ export default async function LearningPathPage() {
         <div className="text-center max-w-3xl mx-auto">
           <div className="text-5xl mb-4">🎯</div>
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            Learning Paths
+            {t('learningPath.title')}
           </h1>
           <p className="text-xl text-gray-600 mb-8">
-            Follow structured curricula to master Web3 concepts. Track your progress,
-            earn badges, and level up your knowledge step by step.
+            {t('learningPath.subtitle')}
           </p>
         </div>
       </Section>
 
       {/* Progress Overview Section */}
-      <ClientProgressLoader tracks={tracks} locale={locale} />
+      <ClientProgressLoader 
+        tracks={tracks} 
+        locale={locale}
+        translations={{
+          yourProgress: t('learningPath.yourProgress'),
+          articlesRead: t('learningPath.articlesRead'),
+          tracksCompleted: t('learningPath.tracksCompleted'),
+          minutesSpent: t('learningPath.minutesSpent'),
+          yourBadges: t('learningPath.yourBadges'),
+          continueLearning: t('learningPath.continueLearning'),
+        }}
+      />
 
       {/* How It Works Section */}
       <Section className="bg-gray-50">
         <AnimatedSection>
           <h2 className="text-3xl font-bold text-center text-gray-900 mb-4">
-            How Learning Paths Work
+            {t('learningPath.howItWorks')}
           </h2>
           <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
-            Structured learning designed to take you from beginner to expert
+            {t('learningPath.howItWorksDesc')}
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
@@ -56,10 +75,10 @@ export default async function LearningPathPage() {
                 <Target className="w-8 h-8 text-primary-600" />
               </div>
               <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                Choose Your Path
+                {t('learningPath.chooseYourPath')}
               </h3>
               <p className="text-sm text-gray-600">
-                Pick a track that matches your goals and current knowledge level
+                {t('learningPath.chooseYourPathDesc')}
               </p>
             </div>
 
@@ -68,10 +87,10 @@ export default async function LearningPathPage() {
                 <TrendingUp className="w-8 h-8 text-primary-600" />
               </div>
               <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                Learn & Progress
+                {t('learningPath.learnAndProgress')}
               </h3>
               <p className="text-sm text-gray-600">
-                Follow articles in order, track completion, and build knowledge
+                {t('learningPath.learnAndProgressDesc')}
               </p>
             </div>
 
@@ -80,10 +99,10 @@ export default async function LearningPathPage() {
                 <Award className="w-8 h-8 text-primary-600" />
               </div>
               <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                Earn Badges
+                {t('learningPath.earnBadges')}
               </h3>
               <p className="text-sm text-gray-600">
-                Complete tracks to earn badges and unlock advanced content
+                {t('learningPath.earnBadgesDesc')}
               </p>
             </div>
           </div>
@@ -94,7 +113,7 @@ export default async function LearningPathPage() {
       <Section>
         <AnimatedSection>
           <h2 className="text-3xl font-bold text-gray-900 mb-8">
-            All Learning Tracks
+            {t('learningPath.allLearningTracks')}
           </h2>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             {tracks.map((track) => (

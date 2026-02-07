@@ -127,13 +127,38 @@ Cost less than $5 (less than $5)
 npm install lucide-react
 ```
 
+## 8. Node Version Error
+
+**Error:** `You are using Node.js 16.x.x. For Next.js, Node.js version >= v18.17.0 is required.`
+
+**Cause:** Wrong Node version active
+
+**Solution:**
+```bash
+# Load nvm and switch to Node 18
+source ~/.nvm/nvm.sh
+nvm use 18
+
+# Or if using n:
+n 18
+
+# Verify version
+node --version  # Should show v18.x.x
+```
+
+**IMPORTANT:** Always ensure Node 18+ is active before running:
+- `npm run dev`
+- `npm run build`
+- `npm install`
+
 ## Quick Fix Checklist
 
 When encountering errors:
 
-1. [ ] Check if it's a client component trying to import server modules
-2. [ ] Check if localStorage/window is causing hydration issues
-3. [ ] Verify correct function names from imports
-4. [ ] Check if all packages are installed
-5. [ ] Look for special characters in MDX files
-6. [ ] Remove dark mode classes if styling doesn't work
+1. [ ] **Check Node version** - Must be 18+ (run `node --version`)
+2. [ ] Check if it's a client component trying to import server modules
+3. [ ] Check if localStorage/window is causing hydration issues
+4. [ ] Verify correct function names from imports
+5. [ ] Check if all packages are installed
+6. [ ] Look for special characters in MDX files
+7. [ ] Remove dark mode classes if styling doesn't work

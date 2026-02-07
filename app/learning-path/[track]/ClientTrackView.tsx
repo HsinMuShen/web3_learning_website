@@ -38,6 +38,22 @@ interface LearningTrackWithPosts {
 interface ClientTrackViewProps {
   track: LearningTrackWithPosts
   locale: string
+  translations: {
+    yourProgress: string
+    completed: string
+    optional: string
+    required: string
+    of: string
+    articles: string
+    trackCompleted: string
+    congratulations: string
+    badge: string
+    learningTips: string
+    learningTip1: string
+    learningTip2: string
+    learningTip3: string
+    learningTip4: string
+  }
 }
 
 // Client-side version of calculateTrackProgress
@@ -69,7 +85,7 @@ function calculateTrackProgress(
   }
 }
 
-export default function ClientTrackView({ track, locale }: ClientTrackViewProps) {
+export default function ClientTrackView({ track, locale, translations }: ClientTrackViewProps) {
   const [progress, setProgress] = useState<ReturnType<typeof getUserProgress> | null>(
     null
   )
@@ -126,16 +142,16 @@ export default function ClientTrackView({ track, locale }: ClientTrackViewProps)
       <div className="mb-8">
         <div className="flex items-center justify-between mb-2">
           <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
-            Your Progress
+            {translations.yourProgress}
           </h2>
           <span className="text-sm font-medium text-gray-600 dark:text-gray-400">
-            {trackProgress.completedCount} of {trackProgress.totalCount} completed
+            {trackProgress.completedCount} {translations.of} {trackProgress.totalCount} {translations.completed}
           </span>
         </div>
         <ProgressBar progress={trackProgress.progress} height="lg" showPercentage={true} />
         <p className="text-sm text-gray-600 dark:text-gray-400 mt-2">
-          {trackProgress.requiredCompletedCount} of {trackProgress.requiredTotalCount}{' '}
-          required articles completed
+          {trackProgress.requiredCompletedCount} {translations.of} {trackProgress.requiredTotalCount}{' '}
+          {translations.required} {translations.articles} {translations.completed}
         </p>
       </div>
 
@@ -149,9 +165,9 @@ export default function ClientTrackView({ track, locale }: ClientTrackViewProps)
               </div>
             </div>
             <div className="flex-1">
-              <h3 className="text-2xl font-bold text-gray-900 mb-2">🎉 Track Completed!</h3>
+              <h3 className="text-2xl font-bold text-gray-900 mb-2">🎉 {translations.trackCompleted}</h3>
               <p className="text-gray-700">
-                Congratulations! You've earned the <strong>{badgeName}</strong> badge.
+                {translations.congratulations} <strong>{badgeName}</strong> {translations.badge}
               </p>
             </div>
             <div className="text-6xl">{track.badge.icon}</div>
@@ -187,23 +203,20 @@ export default function ClientTrackView({ track, locale }: ClientTrackViewProps)
           <div className="text-2xl">💡</div>
           <div>
             <h4 className="font-semibold text-gray-900 mb-2">
-              Learning Tips
+              {translations.learningTips}
             </h4>
             <ul className="text-sm text-gray-600 space-y-2">
               <li>
-                • Follow articles in order for the best learning experience
+                • {translations.learningTip1}
               </li>
               <li>
-                • Take your time - it's not a race! Understanding is more important
-                than speed
+                • {translations.learningTip2}
               </li>
               <li>
-                • Complete all required articles to earn your badge and unlock new
-                tracks
+                • {translations.learningTip3}
               </li>
               <li>
-                • Optional articles provide extra depth but aren't required for
-                completion
+                • {translations.learningTip4}
               </li>
             </ul>
           </div>

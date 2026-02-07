@@ -41,6 +41,14 @@ interface LearningTrackWithPosts {
 interface ClientProgressLoaderProps {
   tracks: LearningTrackWithPosts[]
   locale: string
+  translations: {
+    yourProgress: string
+    articlesRead: string
+    tracksCompleted: string
+    minutesSpent: string
+    yourBadges: string
+    continueLearning: string
+  }
 }
 
 // Client-side version of calculateTrackProgress
@@ -75,6 +83,7 @@ function calculateTrackProgress(
 export default function ClientProgressLoader({
   tracks,
   locale,
+  translations,
 }: ClientProgressLoaderProps) {
   const [progress, setProgress] = useState<ReturnType<typeof getUserProgress> | null>(
     null
@@ -145,7 +154,7 @@ export default function ClientProgressLoader({
       <Section>
         <AnimatedSection>
           <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-8">
-            Your Progress
+            {translations.yourProgress}
           </h2>
 
           {/* Stats Grid */}
@@ -160,7 +169,7 @@ export default function ClientProgressLoader({
                     {progress.stats.articlesRead}
                   </p>
                   <p className="text-sm text-gray-600">
-                    Articles Read
+                    {translations.articlesRead}
                   </p>
                 </div>
               </div>
@@ -176,7 +185,7 @@ export default function ClientProgressLoader({
                     {progress.stats.tracksCompleted}
                   </p>
                   <p className="text-sm text-gray-600">
-                    Tracks Completed
+                    {translations.tracksCompleted}
                   </p>
                 </div>
               </div>
@@ -192,7 +201,7 @@ export default function ClientProgressLoader({
                     {progress.stats.totalTimeSpent}
                   </p>
                   <p className="text-sm text-gray-600">
-                    Minutes Spent
+                    {translations.minutesSpent}
                   </p>
                 </div>
               </div>
@@ -210,7 +219,7 @@ export default function ClientProgressLoader({
           {earnedBadges.length > 0 && (
             <div className="bg-white rounded-lg border border-gray-200 p-6 mb-8">
               <h3 className="text-xl font-bold text-gray-900 mb-4">
-                Your Badges ({earnedBadges.length})
+                {translations.yourBadges} ({earnedBadges.length})
               </h3>
               <BadgeDisplay badges={earnedBadges} size="md" />
             </div>
@@ -220,7 +229,7 @@ export default function ClientProgressLoader({
           {inProgressTracks.length > 0 && (
             <div>
               <h3 className="text-2xl font-bold text-gray-900 mb-6">
-                Continue Learning
+                {translations.continueLearning}
               </h3>
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                 {inProgressTracks.map((track) => (

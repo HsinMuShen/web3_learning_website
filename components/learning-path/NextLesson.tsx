@@ -2,10 +2,17 @@
 
 import Link from 'next/link'
 import { ArrowRight, BookOpen } from 'lucide-react'
-import { BlogPost } from '@/lib/blog'
+
+interface Article {
+  slug: string
+  title: string
+  description: string
+  readingTime: number
+  category?: string
+}
 
 interface NextLessonProps {
-  article?: BlogPost
+  article?: Article
   trackTitle?: string
   trackId?: string
 }

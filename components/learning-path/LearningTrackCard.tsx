@@ -4,10 +4,26 @@ import Link from 'next/link'
 import { Clock, BookOpen, Lock } from 'lucide-react'
 import Card from '@/components/ui/Card'
 import ProgressBar from './ProgressBar'
-import { LearningTrack } from '@/lib/learning-path'
+
+interface Track {
+  id: string
+  title: Record<string, string>
+  description: Record<string, string>
+  icon: string
+  difficulty: 'beginner' | 'intermediate' | 'advanced'
+  estimatedTime: number
+  badge: {
+    id: string
+    name: Record<string, string>
+    icon: string
+  }
+  articles: Array<{ slug: string; order: number; required: boolean }>
+  prerequisites: string[]
+  nextTracks: string[]
+}
 
 interface LearningTrackCardProps {
-  track: LearningTrack
+  track: Track
   locale: string
   progress?: number
   completedArticles?: number

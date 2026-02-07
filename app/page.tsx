@@ -168,14 +168,14 @@ export default async function Home() {
           <div className="text-center max-w-3xl mx-auto">
             <div className="text-5xl mb-4">🎯</div>
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Follow Structured Learning Paths
+              {translations.learningPath.followStructuredPaths}
             </h2>
             <p className="text-lg text-gray-600 mb-8">
-              Not sure where to start? Our learning paths guide you from beginner to expert with structured curricula, progress tracking, and achievement badges.
+              {translations.learningPath.followStructuredPathsDesc}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button href="/learning-path" size="lg">
-                Explore Learning Paths
+                {translations.learningPath.exploreLearningPaths}
               </Button>
               <Button href="/blog" size="lg" variant="secondary">
                 {translations.home.exploreBlog}
@@ -187,23 +187,23 @@ export default async function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12 max-w-4xl mx-auto">
             <div className="bg-white rounded-lg border border-gray-200 p-6 text-center">
               <div className="text-4xl mb-3">📚</div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">Structured Learning</h3>
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">{translations.learningPath.structuredLearning}</h3>
               <p className="text-sm text-gray-600">
-                Follow proven paths from basics to advanced topics
+                {translations.learningPath.structuredLearningDesc}
               </p>
             </div>
             <div className="bg-white rounded-lg border border-gray-200 p-6 text-center">
               <div className="text-4xl mb-3">🎯</div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">Track Progress</h3>
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">{translations.learningPath.trackProgress}</h3>
               <p className="text-sm text-gray-600">
-                Visual tracking shows how far you've come
+                {translations.learningPath.trackProgressDesc}
               </p>
             </div>
             <div className="bg-white rounded-lg border border-gray-200 p-6 text-center">
               <div className="text-4xl mb-3">🏆</div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">Earn Badges</h3>
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">{translations.learningPath.earnAchievements}</h3>
               <p className="text-sm text-gray-600">
-                Collect achievements as you complete tracks
+                {translations.learningPath.earnAchievementsDesc}
               </p>
             </div>
           </div>

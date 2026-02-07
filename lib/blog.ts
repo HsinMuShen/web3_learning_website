@@ -90,3 +90,27 @@ export function getFeaturedPosts(): BlogPost[] {
   return getAllPosts().filter((post) => post.featured)
 }
 
+export function getAllTags(locale?: Locale): { tag: string; count: number }[] {
+  const posts = getAllPosts(locale)
+  const tagCount: Record<string, number> = {}
+
+  posts.forEach((post) => {
+    if (post.tags) {
+      post.tags.forEach((tag) => {
+        tagCount[tag] = (tagCount[tag] || 0) + 1
+      })
+    }
+  })
+
+  return Object.entries(tagCount)
+    .map(([tag, count]) => ({ tag, count }))
+    .sort((a, b) => b.count - a.count) // Sort by count descending
+}
+
+export function getPostsByTag(tag: string, locale?: Locale): BlogPost[] {
+  const allPosts = getAllPosts(locale)
+  return allPosts.filter((post) => 
+    post.tags?.some((t) => t.toLowerCase() === tag.toLowerCase())
+  )
+}
+

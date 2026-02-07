@@ -31,6 +31,7 @@ export default function BlogList({ posts, translations, locale }: BlogListProps)
           date={post.date}
           readingTime={post.readingTime}
           featuredImage={post.featuredImage}
+          tags={post.tags}
           locale={locale}
           minReadText={translations.common.minRead}
         />

@@ -1,0 +1,115 @@
+---
+description: TypeScript patterns and conventions for this project
+globs: "**/*.{ts,tsx}"
+alwaysApply: false
+---
+
+# TypeScript Patterns
+
+## Type Safety
+
+### Define Interfaces
+
+```typescript
+// ✅ GOOD - Explicit interfaces
+interface BlogPost {
+  slug: string
+  title: string
+  description: string
+  date: string
+  readingTime: number
+  tags?: string[]
+}
+
+// ❌ BAD - Using 'any'
+function processPost(post: any) { }
+```
+
+### Props Type Safety
+
+```typescript
+// ✅ GOOD - Defined props interface
+interface CardProps {
+  title: string
+  description: string
+  onClick?: () => void
+}
+
+export default function Card({ title, description, onClick }: CardProps) {
+  return <div>...</div>
+}
+```
+
+## Async Functions
+
+### Server Components
+
+```typescript
+// ✅ GOOD - Async server component
+export default async function Page() {
+  const { locale, translations } = await getServerTranslations()
+  const posts = getAllPosts(locale)
+  return <div>...</div>
+}
+```
+
+### API Routes
+
+```typescript
+// ✅ GOOD - Type-safe API route
+export async function GET(request: Request) {
+  const data = await fetchData()
+  return Response.json(data)
+}
+```
+
+## Type Imports
+
+```typescript
+// ✅ GOOD - Import types
+import type { BlogPost } from '@/lib/blog'
+import type { LearningTrack } from '@/lib/learning-path'
+
+// Also acceptable
+import { type BlogPost, getAllPosts } from '@/lib/blog'
+```
+
+## Null Checks
+
+```typescript
+// ✅ GOOD - Guard against null
+export default function Component({ post }: { post: BlogPost | null }) {
+  if (!post) {
+    return <div>Post not found</div>
+  }
+  
+  return <h1>{post.title}</h1>
+}
+
+// ✅ GOOD - Optional chaining
+<p>{post?.description}</p>
+```
+
+## Type Assertions
+
+```typescript
+// ✅ GOOD - Safe type assertion with fallback
+const title = track.title[locale as keyof typeof track.title] || track.title.en
+
+// ❌ BAD - Unsafe assertion
+const title = track.title[locale]! // Could be undefined
+```
+
+## Array Filtering with Type Guards
+
+```typescript
+// ✅ GOOD - Type guard for filter
+const posts = slugs
+  .map((slug) => getPostBySlug(slug))
+  .filter((post): post is BlogPost => post !== null)
+
+// ❌ BAD - No type guard
+const posts = slugs
+  .map((slug) => getPostBySlug(slug))
+  .filter((post) => post !== null) // Type is still BlogPost | null
+```

@@ -162,6 +162,54 @@ export default async function Home() {
         </div>
       </Section>
 
+      {/* Learning Paths Feature Section */}
+      <Section className="bg-gray-50">
+        <AnimatedSection>
+          <div className="text-center max-w-3xl mx-auto">
+            <div className="text-5xl mb-4">🎯</div>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              {translations.learningPath.followStructuredPaths}
+            </h2>
+            <p className="text-lg text-gray-600 mb-8">
+              {translations.learningPath.followStructuredPathsDesc}
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button href="/learning-path" size="lg">
+                {translations.learningPath.exploreLearningPaths}
+              </Button>
+              <Button href="/blog" size="lg" variant="secondary">
+                {translations.home.exploreBlog}
+              </Button>
+            </div>
+          </div>
+          
+          {/* Features Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12 max-w-4xl mx-auto">
+            <div className="bg-white rounded-lg border border-gray-200 p-6 text-center">
+              <div className="text-4xl mb-3">📚</div>
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">{translations.learningPath.structuredLearning}</h3>
+              <p className="text-sm text-gray-600">
+                {translations.learningPath.structuredLearningDesc}
+              </p>
+            </div>
+            <div className="bg-white rounded-lg border border-gray-200 p-6 text-center">
+              <div className="text-4xl mb-3">🎯</div>
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">{translations.learningPath.trackProgress}</h3>
+              <p className="text-sm text-gray-600">
+                {translations.learningPath.trackProgressDesc}
+              </p>
+            </div>
+            <div className="bg-white rounded-lg border border-gray-200 p-6 text-center">
+              <div className="text-4xl mb-3">🏆</div>
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">{translations.learningPath.earnAchievements}</h3>
+              <p className="text-sm text-gray-600">
+                {translations.learningPath.earnAchievementsDesc}
+              </p>
+            </div>
+          </div>
+        </AnimatedSection>
+      </Section>
+
       {/* Call to Action Section */}
       <Section>
         <AnimatedSection className="text-center max-w-2xl mx-auto">
@@ -171,8 +219,8 @@ export default async function Home() {
           <p className="text-gray-600 mb-8">
             {translations.home.readyToStartDesc}
           </p>
-          <Button href="/blog" size="lg">
-            {translations.home.exploreBlog}
+          <Button href="/learning-path" size="lg">
+            Start Your Learning Journey
           </Button>
         </AnimatedSection>
       </Section>

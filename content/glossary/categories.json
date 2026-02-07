@@ -1,0 +1,58 @@
+{
+  "blockchain": {
+    "name": {
+      "en": "Blockchain Basics",
+      "es": "Conceptos Básicos de Blockchain",
+      "zh-TW": "區塊鏈基礎"
+    },
+    "icon": "⛓️"
+  },
+  "bitcoin": {
+    "name": {
+      "en": "Bitcoin",
+      "es": "Bitcoin",
+      "zh-TW": "比特幣"
+    },
+    "icon": "₿"
+  },
+  "ethereum": {
+    "name": {
+      "en": "Ethereum",
+      "es": "Ethereum",
+      "zh-TW": "以太坊"
+    },
+    "icon": "◈"
+  },
+  "defi": {
+    "name": {
+      "en": "DeFi",
+      "es": "DeFi",
+      "zh-TW": "去中心化金融"
+    },
+    "icon": "💰"
+  },
+  "nft": {
+    "name": {
+      "en": "NFT",
+      "es": "NFT",
+      "zh-TW": "NFT"
+    },
+    "icon": "🖼️"
+  },
+  "dao": {
+    "name": {
+      "en": "DAO",
+      "es": "DAO",
+      "zh-TW": "DAO"
+    },
+    "icon": "🏛️"
+  },
+  "security": {
+    "name": {
+      "en": "Security",
+      "es": "Seguridad",
+      "zh-TW": "安全"
+    },
+    "icon": "🔒"
+  }
+}

@@ -1,0 +1,164 @@
+---
+description: Common errors and how to fix them
+alwaysApply: true
+---
+
+# Common Errors & Solutions
+
+## 1. Module Not Found: 'fs' or 'path'
+
+**Error:** `Module not found: Can't resolve 'fs'`
+
+**Cause:** Importing server-side modules in client component
+
+```typescript
+// ❌ BAD
+'use client'
+import { getAllPosts } from '@/lib/blog' // Uses 'fs'!
+
+// ✅ SOLUTION 1: Remove 'use client'
+import { getAllPosts } from '@/lib/blog'
+
+// ✅ SOLUTION 2: Pass data as props
+// parent-server.tsx
+export default async function Parent() {
+  const posts = getAllPosts()
+  return <ClientChild posts={posts} />
+}
+
+// child-client.tsx
+'use client'
+export default function ClientChild({ posts }) { }
+```
+
+## 2. Hydration Mismatch Error
+
+**Error:** `Hydration failed because the initial UI does not match`
+
+**Cause:** Different content rendered on server vs client
+
+```typescript
+// ❌ BAD - localStorage not available on server
+'use client'
+export default function Component() {
+  const data = localStorage.getItem('key')
+  return <div>{data}</div>
+}
+
+// ✅ SOLUTION
+'use client'
+export default function Component() {
+  const [data, setData] = useState(null)
+  
+  useEffect(() => {
+    setData(localStorage.getItem('key'))
+  }, [])
+  
+  if (!data) return null // Match server render
+  return <div>{data}</div>
+}
+```
+
+## 3. Function Not Exported Error
+
+**Error:** `'getServerLocale' is not exported from '@/lib/i18n/server'`
+
+**Cause:** Using wrong function name
+
+```typescript
+// ❌ BAD
+import { getServerLocale } from '@/lib/i18n/server'
+
+// ✅ CORRECT
+import { getServerTranslations } from '@/lib/i18n/server'
+
+export default async function Page() {
+  const { locale, translations } = await getServerTranslations()
+}
+```
+
+## 4. Package Not Installed
+
+**Error:** `Module not found: Can't resolve 'lucide-react'`
+
+**Solution:**
+```bash
+npm install lucide-react
+# or
+npm install [package-name]
+```
+
+Then restart dev server.
+
+## 5. MDX Parsing Error
+
+**Error:** `Unexpected character '<' before member name`
+
+**Cause:** Special characters like `<` interpreted as JSX
+
+```markdown
+❌ BAD
+Cost less than $5 (<$5)
+
+✅ GOOD
+Cost less than $5 (less than $5)
+```
+
+## 6. Dark Mode Classes Not Working
+
+**Issue:** Dark mode classes show but don't work
+
+**Solution:** Remove them - project uses light mode only
+
+```typescript
+// ❌ REMOVE
+<div className="bg-white dark:bg-gray-800">
+
+// ✅ USE
+<div className="bg-white">
+```
+
+## 7. Missing lucide-react Package
+
+**Error:** Build fails with "Cannot find module 'lucide-react'"
+
+**Solution:**
+```bash
+npm install lucide-react
+```
+
+## 8. Node Version Error
+
+**Error:** `You are using Node.js 16.x.x. For Next.js, Node.js version >= v18.17.0 is required.`
+
+**Cause:** Wrong Node version active
+
+**Solution:**
+```bash
+# Load nvm and switch to Node 18
+source ~/.nvm/nvm.sh
+nvm use 18
+
+# Or if using n:
+n 18
+
+# Verify version
+node --version  # Should show v18.x.x
+```
+
+**IMPORTANT:** Always ensure Node 18+ is active before running:
+- `npm run dev`
+- `npm run build`
+- `npm install`
+
+## Quick Fix Checklist
+
+When encountering errors:
+
+1. [ ] **Check Node version** - Must be 18+ (run `node --version`)
+2. [ ] Check if it's a client component trying to import server modules
+3. [ ] Check if localStorage/window is causing hydration issues
+4. [ ] Verify correct function names from imports
+5. [ ] Check if all packages are installed
+6. [ ] Look for special characters in MDX files
+7. [ ] Remove dark mode classes if styling doesn't work

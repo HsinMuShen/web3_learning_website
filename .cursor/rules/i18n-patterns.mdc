@@ -1,0 +1,93 @@
+---
+description: Internationalization (i18n) patterns and multi-language support
+alwaysApply: true
+---
+
+# i18n Patterns
+
+## Supported Languages
+- English (`en`)
+- Spanish (`es`)
+- Traditional Chinese (`zh-TW`)
+
+## Server-Side i18n
+
+### Always Use `getServerTranslations()`
+
+```typescript
+// ✅ GOOD - Correct function
+import { getServerTranslations } from '@/lib/i18n/server'
+
+export default async function Page() {
+  const { locale, translations } = await getServerTranslations()
+  return <h1>{translations.home.title}</h1>
+}
+
+// ❌ BAD - Function doesn't exist
+import { getServerLocale } from '@/lib/i18n/server' // ERROR: Not exported!
+```
+
+## MDX Content Structure
+
+All blog posts must have 3 language versions:
+
+```
+content/blog/bitcoin-whitepaper-explained/
+  index.mdx        # English
+  index.es.mdx     # Spanish
+  index.zh-TW.mdx  # Traditional Chinese
+```
+
+### MDX Frontmatter
+
+```yaml
+---
+title: "Article Title"
+slug: "article-slug"
+date: "2026-01-22"
+description: "Article description"
+readingTime: 15
+category: "Blockchain"
+tags: ["bitcoin", "blockchain"]
+featured: false
+---
+```
+
+## JSON Configuration Files
+
+For learning paths and other structured content:
+
+```json
+{
+  "title": {
+    "en": "English Title",
+    "es": "Spanish Title",
+    "zh-TW": "Traditional Chinese Title"
+  },
+  "description": {
+    "en": "English description",
+    "es": "Spanish description",
+    "zh-TW": "Traditional Chinese description"
+  }
+}
+```
+
+## Getting Localized Text
+
+```typescript
+// ✅ GOOD - Safe accessor with fallback
+const title = track.title[locale as keyof typeof track.title] || track.title.en
+
+// ✅ GOOD - Type-safe approach
+type LocaleKey = 'en' | 'es' | 'zh-TW'
+const title = track.title[locale as LocaleKey] || track.title.en
+```
+
+## Translation Keys
+
+Located in `messages/`:
+- `messages/en.json`
+- `messages/es.json`
+- `messages/zh-TW.json`
+
+All keys must exist in all language files.

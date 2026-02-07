@@ -25,6 +25,13 @@ import WalletSecurityChecklist from '@/components/educational/WalletSecurityChec
 import TradFiVsDeFi from '@/components/educational/TradFiVsDeFi'
 import DeFiEcosystem from '@/components/educational/DeFiEcosystem'
 import LiquidityPoolDiagram from '@/components/educational/LiquidityPoolDiagram'
+import ConsensusComparison from '@/components/educational/ConsensusComparison'
+import Layer2Comparison from '@/components/educational/Layer2Comparison'
+import DAOStructure from '@/components/educational/DAOStructure'
+import Web3Evolution from '@/components/educational/Web3Evolution'
+import MiningVsStaking from '@/components/educational/MiningVsStaking'
+import SecurityVulnerabilities from '@/components/educational/SecurityVulnerabilities'
+import Tag from '@/components/blog/Tag'
 import { getServerTranslations } from '@/lib/i18n/server'
 import { getQuizBySlug } from '@/lib/quiz'
 import QuizTrigger from '@/components/quiz/QuizTrigger'
@@ -153,6 +160,12 @@ const mdxComponents = {
   TradFiVsDeFi,
   DeFiEcosystem,
   LiquidityPoolDiagram,
+  ConsensusComparison,
+  Layer2Comparison,
+  DAOStructure,
+  Web3Evolution,
+  MiningVsStaking,
+  SecurityVulnerabilities,
 }
 
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
@@ -182,11 +195,23 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               {post.title}
             </h1>
             <p className="text-xl text-gray-600 mb-6">{post.description}</p>
-            <div className="flex items-center gap-4 text-gray-500">
+            <div className="flex items-center gap-4 text-gray-500 mb-4">
               <time dateTime={post.date}>{formattedDate}</time>
               <span>•</span>
               <span>{post.readingTime} {translations.common.minRead}</span>
             </div>
+            
+            {post.tags && post.tags.length > 0 && (
+              <div className="flex flex-wrap gap-2">
+                {post.tags.map((tag) => (
+                  <Tag 
+                    key={tag} 
+                    tag={tag} 
+                    size="md"
+                  />
+                ))}
+              </div>
+            )}
             {post.featuredImage && (
               <div className="relative w-full h-64 md:h-96 mt-8 rounded-lg overflow-hidden">
                 <Image

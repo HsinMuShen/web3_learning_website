@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import Card from '@/components/ui/Card'
+import Tag from './Tag'
 import { Locale } from '@/lib/i18n/config'
 
 interface BlogCardProps {
@@ -10,6 +11,7 @@ interface BlogCardProps {
   date: string
   readingTime: number
   featuredImage?: string
+  tags?: string[]
   locale?: Locale
   minReadText?: string
 }
@@ -21,6 +23,7 @@ export default function BlogCard({
   date,
   readingTime,
   featuredImage,
+  tags,
   locale = 'en',
   minReadText = 'min read',
 }: BlogCardProps) {
@@ -53,7 +56,25 @@ export default function BlogCard({
           {title}
         </h3>
         <p className="text-gray-600 mb-4 flex-grow">{description}</p>
-        <div className="flex items-center justify-between text-sm text-gray-500">
+        
+        {tags && tags.length > 0 && (
+          <div className="flex flex-wrap gap-2 mb-3">
+            {tags.slice(0, 3).map((tag) => (
+              <Tag 
+                key={tag} 
+                tag={tag} 
+                size="sm"
+              />
+            ))}
+            {tags.length > 3 && (
+              <span className="text-xs text-gray-500 self-center">
+                +{tags.length - 3} more
+              </span>
+            )}
+          </div>
+        )}
+
+        <div className="flex items-center justify-between text-sm text-gray-500 pt-3 border-t border-gray-100">
           <span>{formattedDate}</span>
           <span>{readingTime} {minReadText}</span>
         </div>

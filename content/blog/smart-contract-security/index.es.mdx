@@ -1,0 +1,144 @@
+---
+title: "Seguridad de Contratos Inteligentes: Vulnerabilidades Comunes y Cómo Mantenerse Seguro"
+slug: "smart-contract-security"
+description: "Aprende sobre vulnerabilidades de seguridad en contratos inteligentes, hacks famosos y cómo protegerte. Conocimiento esencial para usuarios y desarrolladores."
+date: "2026-02-07"
+readingTime: 18
+category: "Seguridad Blockchain"
+featured: true
+tags: ["seguridad", "contratos-inteligentes", "ethereum", "hacks", "protección"]
+---
+
+## Introducción
+
+Los contratos inteligentes están revolucionando cómo interactuamos con activos digitales, pero vienen con una advertencia crítica: **una vez desplegados, son inmutables**. Un error en el código no puede corregirse fácilmente como actualizar una aplicación tradicional, y los hackers han robado **miles de millones de dólares** explotando vulnerabilidades de contratos inteligentes.
+
+## ¿Qué es la Seguridad de Contratos Inteligentes?
+
+La **seguridad de contratos inteligentes** se refiere a la protección de programas basados en blockchain contra vulnerabilidades, errores y exploits que podrían llevar a la pérdida de fondos o comportamiento no deseado.
+
+### Por Qué la Seguridad es Crítica
+
+**Inmutabilidad:** Una vez desplegados, los contratos no pueden cambiarse fácilmente  
+**Dinero en juego:** Los contratos a menudo contienen millones o miles de millones en criptomonedas  
+**Código público:** Cualquiera puede inspeccionar el código en busca de vulnerabilidades  
+**Irreversible:** Las transacciones blockchain no se pueden deshacer
+
+## Vulnerabilidades Comunes en Contratos Inteligentes
+
+### 1. Ataque de Reentrada
+
+**Qué es:** Un atacante llama repetidamente una función antes de que se complete la ejecución anterior, drenando fondos.
+
+**Ejemplo famoso:** **El Hack de The DAO (2016)**
+- $50 millones robados a través de reentrada
+- Llevó al hard fork de Ethereum (ETH vs ETC)
+
+**Cómo prevenir:**
+- Actualizar estado ANTES de llamadas externas
+- Usar ReentrancyGuard de OpenZeppelin
+
+### 2. Desbordamiento de Enteros
+
+**Qué es:** Números que exceden el máximo o caen por debajo del mínimo se envuelven al extremo opuesto.
+
+**Cómo prevenir:**
+- Usar Solidity 0.8.0+ (tiene protección incorporada)
+- Usar biblioteca SafeMath para versiones anteriores
+
+### 3. Vulnerabilidades de Control de Acceso
+
+**Qué es:** Funciones que deberían estar restringidas son accidentalmente públicas o están protegidas incorrectamente.
+
+**Ejemplo famoso:** **Hack de Parity Wallet #1 (2017)**
+- $30 millones robados
+- Función InitWallet era pública cuando debería haber sido interna
+
+### 4. Autodestrucción Desprotegida
+
+**Qué es:** Cualquiera puede activar la autodestrucción del contrato, destruyéndolo y enviando fondos.
+
+**Ejemplo famoso:** **Hack de Parity Wallet #2 (2017)**
+- $150+ millones congelados para siempre
+
+### 5. Front-Running
+
+**Qué es:** Observar transacciones pendientes y enviar la tuya propia con gas más alto para ejecutar primero.
+
+**Cómo mitigar:**
+- Usar esquemas commit-reveal
+- Transacciones privadas
+- Protección MEV
+
+### 6. Manipulación de Oráculos
+
+**Qué es:** Explotar o manipular las fuentes de datos (oráculos) en las que dependen los contratos inteligentes.
+
+**Ejemplo famoso:** **Exploit de Mango Markets (2022)**
+- $110 millones drenados
+- Atacante manipuló el oráculo de precios
+
+### 7. Ataques con Flash Loans
+
+**Qué es:** Pedir prestadas enormes cantidades de criptomonedas sin colateral para manipular mercados o protocolos.
+
+**Ejemplos famosos:**
+- Cream Finance (2021) - $130 millones
+- Beanstalk (2022) - $182 millones
+
+## Hacks Famosos de Contratos Inteligentes
+
+### El Hack de The DAO (2016) - $50M
+**Vulnerabilidad:** Reentrada
+
+### Hack de Ronin Bridge (2022) - $625M
+**Vulnerabilidad:** Claves privadas comprometidas
+
+### Hack de Poly Network (2021) - $611M (¡Devuelto!)
+**Vulnerabilidad:** Error de control de acceso
+
+## Mejores Prácticas de Seguridad
+
+### Para Desarrolladores
+
+✅ **Seguir patrones de diseño**
+✅ **Usar bibliotecas establecidas** (OpenZeppelin)
+✅ **Pruebas exhaustivas**
+✅ **Auditorías profesionales**
+✅ **Programas de recompensas por bugs**
+✅ **Despliegue gradual**
+
+### Para Usuarios
+
+✅ **Verificar antes de interactuar**
+✅ **Comenzar con pequeñas cantidades**
+✅ **Usar wallets de hardware**
+✅ **Desconfiar de APY altos**
+✅ **Verificar aprobaciones de tokens**
+✅ **Vigilar señales de alerta**
+
+## Herramientas de Seguridad
+
+**Para Desarrolladores:**
+- Slither (análisis estático)
+- Hardhat (entorno de desarrollo)
+- MythX (análisis automatizado)
+
+**Para Usuarios:**
+- Revoke.cash (gestionar aprobaciones)
+- Etherscan (verificar contratos)
+- Forta (detección de amenazas)
+
+## Conclusión
+
+La seguridad de contratos inteligentes es primordial en el ecosistema blockchain. Mientras la tecnología ofrece posibilidades increíbles, la naturaleza inmutable y las apuestas financieras hacen que las vulnerabilidades de seguridad sean especialmente costosas.
+
+**Puntos Clave:**
+
+- **Vulnerabilidades comunes** incluyen reentrada, desbordamiento, control de acceso y manipulación de oráculos
+- **Hacks famosos** han costado miles de millones
+- **Los desarrolladores** deben seguir mejores prácticas y obtener auditorías
+- **Los usuarios** deben verificar contratos y comenzar con pequeñas cantidades
+- **La seguridad es continua** - nunca asumas que un contrato es 100% seguro
+
+¡Gracias por leer y mantente seguro en Web3!
